@@ -175,7 +175,8 @@
     /* photo card */
     .photo{
       position:relative;
-      min-height:320px;
+      /* Taller photo card so your headshot feels intentional */
+      min-height:420px;
       display:flex;
       align-items:flex-end;
       padding:16px;
@@ -190,14 +191,19 @@
     }
     .photo img{
       position:absolute; inset:0;
-      width:100%; height:100%; object-fit:cover;
-      opacity:.92;
-      filter:saturate(1.05) contrast(1.02);
+      width:100%; height:100%;
+      object-fit:cover;
+      /* Adjust this to control what part of your photo is centered */
+      object-position: center 18%;
+      opacity:1;
+      filter:saturate(1.03) contrast(1.03);
+      transform: scale(1.02);
     }
     .photo::after{
       content:"";
       position:absolute; inset:0;
-      background:linear-gradient(180deg, rgba(255,247,251,.08), rgba(255,247,251,.72));
+      /* Softer overlay so your photo stays crisp */
+      background:linear-gradient(180deg, rgba(255,247,251,.04), rgba(255,247,251,.58));
     }
     .photo .badge{
       position:relative;
@@ -270,8 +276,10 @@
     /* responsive */
     @media (max-width: 920px){
       .hero{grid-template-columns: 1fr}
-      .photo{min-height:360px}
+      .photo{min-height:520px}
       h1{font-size:38px}
+      .mini-grid{grid-template-columns: 1fr 1fr 1fr}
+    }
       .mini-grid{grid-template-columns: 1fr 1fr 1fr}
     }
     @media (max-width: 640px){

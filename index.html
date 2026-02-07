@@ -32,6 +32,7 @@
         var(--bg);
       overflow-x:hidden;
     }
+
     .wrap{max-width:1100px;margin:0 auto;padding:26px 18px 60px; position:relative;}
 
     header{
@@ -56,6 +57,7 @@
 
     /* HERO */
     .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:stretch;margin-top:12px}
+
     .card{
       background:var(--card);
       border:1px solid var(--line);
@@ -65,6 +67,7 @@
       position:relative;
     }
     .card.pad{padding:22px}
+
     h1{
       margin:12px 0 10px;
       font-family:"Fraunces", ui-serif, Georgia, serif;
@@ -90,8 +93,8 @@
     .btn.ghost{color:var(--text);background:rgba(255,255,255,.72);border:1px solid var(--line)}
     .btn:hover{filter:brightness(1.05)}
 
-    /* RIGHT HERO CARD = SKILL STICKER CANVAS */
-    .skill-canvas{
+    /* RIGHT HERO = WHITE STICKER CANVAS */
+    .sticker-canvas{
       padding:18px;
       min-height:420px;
       background:
@@ -99,69 +102,52 @@
         radial-gradient(700px 380px at 70% 60%, rgba(154,215,255,.22), transparent 65%),
         rgba(255,255,255,.70);
     }
-    .skill-canvas h2{
+    .sticker-canvas h2{
       margin:2px 0 4px;
       font-size:14px;
       color:var(--muted);
       font-weight:800;
       letter-spacing:.2px;
     }
-    .skill-canvas .big{
+    .sticker-canvas .big{
       font-size:26px;
       font-weight:900;
       margin:0 0 10px;
     }
-    .skill-canvas .hint{
-      margin:0;
+    .sticker-canvas .hint{
+      margin:0 0 14px;
       color:var(--muted);
       font-size:13px;
+      line-height:1.4;
     }
 
-    .stickers{
-      position:absolute; inset:0;
-      pointer-events:none;
-      z-index:2;
+    /* This is the KEY: stickers are NOT absolute anymore. They stay TOGETHER. */
+    .sticker-board{
+      background:rgba(255,255,255,.90);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:16px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-content:flex-start;
+      min-height:300px;
     }
-    .sticker{
-      position:absolute;
-      display:inline-flex;align-items:center;gap:8px;
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
       padding:10px 12px;
       border-radius:16px;
       border:1px solid var(--line);
-      background:rgba(255,255,255,.86);
-      box-shadow:0 14px 30px rgba(31,26,36,.12);
+      background:rgba(255,255,255,.96);
       font-weight:900;
       font-size:13px;
-      transform:rotate(var(--r));
-      animation: floaty 6s ease-in-out infinite;
-      backdrop-filter: blur(10px);
+      box-shadow:0 10px 22px rgba(31,26,36,.10);
       white-space:nowrap;
     }
-    .sticker small{
-      display:block;
-      font-weight:800;
-      color:var(--muted);
-      font-size:11px;
-      margin-top:2px;
-    }
-    .emoji{font-size:16px}
-
-    /* Sticker positions (fills the whole blank space) */
-    .s1 {top:18%; left:8%;  --r:-6deg; animation-delay:.2s;}
-    .s2 {top:20%; right:10%;--r:7deg;  animation-delay:1.0s;}
-    .s3 {top:35%; left:14%; --r:5deg;  animation-delay:1.6s;}
-    .s4 {top:34%; right:14%;--r:-5deg; animation-delay:2.1s;}
-    .s5 {top:49%; left:8%;  --r:-7deg; animation-delay:2.6s;}
-    .s6 {top:50%; right:10%;--r:6deg;  animation-delay:3.0s;}
-    .s7 {top:64%; left:14%; --r:6deg;  animation-delay:3.4s;}
-    .s8 {top:66%; right:14%;--r:-6deg; animation-delay:3.9s;}
-    .s9 {top:78%; left:10%; --r:4deg;  animation-delay:4.3s;}
-    .s10{top:80%; right:10%;--r:-4deg; animation-delay:4.7s;}
-
-    @keyframes floaty{
-      0%,100%{transform:translateY(0) rotate(var(--r))}
-      50%{transform:translateY(-10px) rotate(var(--r))}
-    }
+    .pill .emoji{font-size:16px}
 
     /* sections */
     section{margin-top:18px}
@@ -184,7 +170,8 @@
     @media (max-width:920px){
       .hero{grid-template-columns:1fr}
       h1{font-size:38px}
-      .skill-canvas{min-height:460px}
+      .sticker-canvas{min-height:460px}
+      .sticker-board{min-height:320px}
     }
     @media (max-width:640px){
       nav{display:none}
@@ -221,23 +208,29 @@
         </div>
       </div>
 
-      <!-- RIGHT HERO (FILLED WITH STICKERS) -->
-      <div class="card skill-canvas">
+      <!-- RIGHT HERO: WHITE CANVAS WITH ALL STICKERS TOGETHER -->
+      <div class="card sticker-canvas">
         <h2>My analyst toolkit</h2>
         <div class="big">Skills at a glance</div>
-        <p class="hint">SQL · Python · BI · Data quality · EDA · Stakeholder-ready reporting</p>
+        <p class="hint">Everything below stays grouped together inside one white canvas.</p>
 
-        <div class="stickers" aria-hidden="true">
-          <div class="sticker s1"><span class="emoji">🧾</span> SQL <small>joins · aggregations</small></div>
-          <div class="sticker s2"><span class="emoji">🐍</span> Python <small>pandas · automation</small></div>
-          <div class="sticker s3"><span class="emoji">📊</span> Power BI <small>KPIs · dashboards</small></div>
-          <div class="sticker s4"><span class="emoji">📈</span> Tableau <small>visual storytelling</small></div>
-          <div class="sticker s5"><span class="emoji">🧼</span> Data Cleaning <small>missing · outliers</small></div>
-          <div class="sticker s6"><span class="emoji">🔎</span> EDA <small>patterns · trends</small></div>
-          <div class="sticker s7"><span class="emoji">✅</span> Data Quality <small>validation · audits</small></div>
-          <div class="sticker s8"><span class="emoji">📋</span> Reporting <small>clear insights</small></div>
-          <div class="sticker s9"><span class="emoji">📌</span> KPIs <small>definition · tracking</small></div>
-          <div class="sticker s10"><span class="emoji">🗣️</span> Stakeholders <small>simple summaries</small></div>
+        <div class="sticker-board" aria-label="Data Analyst Skills">
+          <span class="pill"><span class="emoji">🧾</span>SQL</span>
+          <span class="pill"><span class="emoji">🐍</span>Python</span>
+          <span class="pill"><span class="emoji">🧪</span>R</span>
+          <span class="pill"><span class="emoji">📊</span>Power BI</span>
+          <span class="pill"><span class="emoji">📈</span>Tableau</span>
+          <span class="pill"><span class="emoji">📎</span>Excel</span>
+          <span class="pill"><span class="emoji">🧼</span>Data Cleaning</span>
+          <span class="pill"><span class="emoji">🔍</span>EDA</span>
+          <span class="pill"><span class="emoji">📌</span>KPI Design</span>
+          <span class="pill"><span class="emoji">✅</span>Data Validation</span>
+          <span class="pill"><span class="emoji">🧾</span>Reporting</span>
+          <span class="pill"><span class="emoji">🗣️</span>Stakeholder Communication</span>
+          <span class="pill"><span class="emoji">🧠</span>Problem Solving</span>
+          <span class="pill"><span class="emoji">🧩</span>Requirements Gathering</span>
+          <span class="pill"><span class="emoji">📉</span>Trend Analysis</span>
+          <span class="pill"><span class="emoji">🧭</span>Business Insights</span>
         </div>
       </div>
     </div>

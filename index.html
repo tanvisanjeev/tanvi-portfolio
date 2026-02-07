@@ -37,19 +37,13 @@
     .wrap{max-width:1100px;margin:0 auto;padding:26px 18px 60px}
 
     header{
-      display:flex;justify-content:space-between;align-items:center;
+      display:flex;justify-content:flex-end;align-items:center;
       padding:10px 0 18px;margin-bottom:8px
     }
 
-    /* ✅ brand name removed; keep only dot */
-    .brand{
-      display:flex;align-items:center;gap:10px;font-weight:800
-    }
-    .dot{
-      width:12px;height:12px;border-radius:999px;
-      background:linear-gradient(135deg,var(--accent),var(--accent2));
-      box-shadow:0 10px 20px rgba(255,111,177,.25);
-    }
+    /* REMOVED NAME IN HEADER */
+    .brand{display:none;}
+    .dot{display:none;}
 
     nav a{
       margin-left:16px;text-decoration:none;color:var(--muted);font-size:14px;
@@ -132,7 +126,7 @@
       padding:12px 16px;border-radius:14px;border:none;
       font-weight:800;font-size:14px;cursor:pointer;text-decoration:none;
       display:inline-flex;align-items:center;justify-content:center;gap:8px;
-      transition:transform .15s ease, filter .15s ease, background .15s ease;
+      transition:transform .15s ease, filter .15s ease;
     }
     .btn.primary{
       background:linear-gradient(135deg,var(--accent),var(--accent2));
@@ -176,7 +170,7 @@
       margin-top:2px;
     }
 
-    /* ✅ Fill blank space: 10 stickers, tighter spacing */
+    /* MORE STICKERS + BETTER USE OF SPACE */
     .skill-stickers{
       position:absolute;
       top:86px;
@@ -184,17 +178,17 @@
       transform:translateX(-50%);
       width:100%;
       max-width:470px;
-      padding:14px 14px 18px;
+      padding:18px 14px 18px;
       display:grid;
       grid-template-columns:repeat(2, 1fr);
-      gap:14px 12px;
+      gap:14px 14px;
       pointer-events:none;
     }
 
     .sticker{
       justify-self:center;
       width:100%;
-      max-width:230px;
+      max-width:220px;
       padding:10px 12px;
       border-radius:18px;
       background:rgba(255,255,255,.92);
@@ -204,6 +198,7 @@
       font-size:13px;
       text-align:left;
       animation:floaty 6s ease-in-out infinite;
+      transition:transform .15s ease;
     }
     .sticker b{font-weight:900;color:var(--text)}
     .sticker span{color:var(--muted);font-weight:800;margin-left:8px;font-size:12px}
@@ -217,6 +212,8 @@
     .sticker:nth-child(8){animation-delay:4.2s}
     .sticker:nth-child(9){animation-delay:4.8s}
     .sticker:nth-child(10){animation-delay:5.4s}
+    .sticker:nth-child(11){animation-delay:6.0s}
+    .sticker:nth-child(12){animation-delay:6.6s}
 
     @keyframes floaty{
       0%,100%{transform:translateY(0)}
@@ -273,15 +270,16 @@
     @media(max-width:950px){
       .hero{grid-template-columns:1fr}
       h1{font-size:40px}
-      .skills-card{min-height:540px}
+      .skills-card{min-height:560px}
       .lead-block{grid-template-columns:120px 1fr}
       .portrait{width:120px;height:120px}
+      header{justify-content:flex-end}
     }
     @media(max-width:520px){
       .lead-block{grid-template-columns:1fr}
       .portrait{width:120px;height:120px}
-      .skill-stickers{max-width:380px}
-      .sticker{max-width:190px}
+      .skill-stickers{max-width:360px}
+      .sticker{max-width:180px}
       .skills-card{min-height:620px}
     }
   </style>
@@ -291,8 +289,6 @@
   <div class="wrap">
 
     <header>
-      <!-- ✅ Only dot -->
-      <div class="brand"><span class="dot" aria-hidden="true"></span></div>
       <nav>
         <a href="#skills">Skills</a>
         <a href="#education">Education</a>
@@ -305,10 +301,13 @@
       <!-- LEFT MAIN CARD -->
       <div class="card">
 
+        <!-- 1) HEADLINE FIRST -->
         <h1><span class="gradtext">Data-driven insights.</span><br>Clear decisions.</h1>
 
+        <!-- 2) PHOTO + SEEKING LINE -->
         <div class="lead-block">
           <div class="portrait">
+            <!-- Make sure this file exists in your repo root (same folder as index.html) -->
             <img src="tanvi.jpg" alt="Tanvi Sanjeev Kadam">
           </div>
 
@@ -317,6 +316,7 @@
           </p>
         </div>
 
+        <!-- 3) NAME + DETAILS (ONLY ONCE) -->
         <div class="bio">
           <p class="name-line">Tanvi Sanjeev Kadam <span>She/Her</span></p>
           <p class="role">
@@ -329,6 +329,7 @@
           </div>
         </div>
 
+        <!-- 4) BUTTONS -->
         <div class="cta-row">
           <a class="btn primary" href="#contact">Know me better</a>
           <a class="btn ghost" href="https://www.linkedin.com/in/tanvisanjeev/" target="_blank" rel="noreferrer">LinkedIn</a>
@@ -345,14 +346,18 @@
         <div class="skill-stickers">
           <div class="sticker"><b>SQL</b><span>joins · aggregations</span></div>
           <div class="sticker"><b>Python</b><span>pandas · automation</span></div>
-          <div class="sticker"><b>Power BI</b><span>DAX · KPIs</span></div>
-          <div class="sticker"><b>Tableau</b><span>dashboards</span></div>
-          <div class="sticker"><b>Excel</b><span>pivots · lookups</span></div>
-          <div class="sticker"><b>EDA</b><span>patterns · trends</span></div>
+          <div class="sticker"><b>Power BI</b><span>KPI dashboards</span></div>
+          <div class="sticker"><b>Tableau</b><span>visual storytelling</span></div>
           <div class="sticker"><b>Data Cleaning</b><span>missing · outliers</span></div>
+          <div class="sticker"><b>EDA</b><span>patterns · trends</span></div>
+
+          <!-- ADDED MORE SKILLS TO FILL BLANK SPACE -->
+          <div class="sticker"><b>Excel</b><span>pivots · lookups</span></div>
+          <div class="sticker"><b>KPIs</b><span>definitions · tracking</span></div>
           <div class="sticker"><b>Data Quality</b><span>validation · audits</span></div>
-          <div class="sticker"><b>Storytelling</b><span>clear narratives</span></div>
-          <div class="sticker"><b>Stakeholders</b><span>exec-ready</span></div>
+          <div class="sticker"><b>Reporting</b><span>stakeholder-ready</span></div>
+          <div class="sticker"><b>Dashboards</b><span>decision-ready</span></div>
+          <div class="sticker"><b>Storytelling</b><span>clear insights</span></div>
         </div>
       </div>
 

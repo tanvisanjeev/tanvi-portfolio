@@ -6,6 +6,7 @@
   <title>Tanvi Kadam | Data & Business Analyst</title>
   <meta name="description" content="Tanvi Kadam — Data & Business Analyst. SQL, Python, R, BI. Portfolio snapshot with skills, education, strengths, and contact." />
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,800&display=swap');
     :root{
       /* Pastel theme */
       --bg:#fff7fb;
@@ -21,7 +22,7 @@
     *{box-sizing:border-box}
     html,body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color:var(--text);
       background:
         radial-gradient(900px 520px at 15% 0%, rgba(255,111,177,.28), transparent 55%),
@@ -42,7 +43,7 @@
     }
     @keyframes float{0%{transform:translate3d(0,0,0)}50%{transform:translate3d(-1.5%,1%,0)}100%{transform:translate3d(0,0,0)}}50%{transform:translate3d(-2%,1%,0)}100%{transform:translate3d(0,0,0)}}
 
-    .wrap{max-width:1100px; margin:0 auto; padding:28px 18px 60px}
+    .wrap{max-width:1100px; margin:0 auto; padding:28px 18px 60px; position:relative; z-index:2}
 
     /* top nav */
     header{
@@ -53,6 +54,25 @@
       backdrop-filter: blur(10px);
       z-index:10;
     }
+    /* cute floating stickers */
+    .stickers{position:absolute; inset:0; pointer-events:none; z-index:1}
+    .st{
+      position:absolute;
+      padding:10px 12px;
+      border-radius:18px;
+      background:rgba(255,255,255,.72);
+      border:1px solid var(--line);
+      box-shadow: 0 14px 30px rgba(31,26,36,.12);
+      transform:rotate(var(--r));
+      animation: bob 5.5s ease-in-out infinite;
+      font-weight:800;
+    }
+    .st small{display:block; font-weight:700; color:var(--muted); margin-top:3px; font-size:11px}
+    .st.one{left:-6px; top:92px; --r:-6deg; animation-delay:.1s}
+    .st.two{right:6px; top:120px; --r:7deg; animation-delay:.8s}
+    .st.three{left:24px; bottom:120px; --r:5deg; animation-delay:1.6s}
+    .st.four{right:28px; bottom:90px; --r:-7deg; animation-delay:2.2s}
+    @keyframes bob{0%,100%{transform:translateY(0) rotate(var(--r))}50%{transform:translateY(-10px) rotate(var(--r))}}
     .brand{
       display:flex; align-items:center; gap:10px;
       font-weight:700;
@@ -88,7 +108,17 @@
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow:hidden;
+      position:relative;
     }
+    .card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:linear-gradient(135deg, rgba(255,111,177,.18), rgba(154,215,255,.18), rgba(167,139,250,.16));
+      opacity:.55;
+      filter: blur(18px);
+      z-index:0;
+    }
+    .card > *{position:relative; z-index:1}
     .hero-left{padding:22px 22px 18px}
     .kicker{
       display:inline-flex; gap:10px; align-items:center;
@@ -107,7 +137,8 @@
     }
     @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(61,214,208,.35)}70%{box-shadow:0 0 0 12px rgba(61,214,208,0)}100%{box-shadow:0 0 0 0 rgba(61,214,208,0)}}
 
-    h1{margin:14px 0 10px; font-size:44px; line-height:1.05}
+    h1{margin:14px 0 10px; font-family:"Fraunces", ui-serif, Georgia, serif; font-size:46px; line-height:1.02; letter-spacing:-.2px}
+    .gradtext{background:linear-gradient(135deg, var(--accent), rgba(167,139,250,.95), var(--accent2)); -webkit-background-clip:text; background-clip:text; color:transparent}
     .subtitle{margin:0 0 14px; color:var(--muted); font-size:16px; line-height:1.6}
 
     .cta-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
@@ -202,11 +233,11 @@
       padding:8px 10px;
       border-radius:999px;
       border:1px solid var(--line);
-      background:rgba(255,255,255,.03);
+      background:rgba(255,255,255,.72);
       font-size:13px;
       color:var(--text);
     }
-    .chip strong{font-weight:700}
+    .chip strong{font-weight:800}
 
     .list{margin:10px 0 0; padding:0; list-style:none; display:grid; gap:10px}
     .li{
@@ -265,6 +296,12 @@
   </svg>
 
   <div class="wrap">
+    <div class="stickers" aria-hidden="true">
+      <div class="st one">✨ <small>insights</small></div>
+      <div class="st two">🎀 <small>dashboards</small></div>
+      <div class="st three">📊 <small>SQL • Python</small></div>
+      <div class="st four">🧠 <small>problem solver</small></div>
+    </div>
     <header>
       <div class="brand"><span class="dot"></span> Tanvi Kadam</div>
       <nav>
@@ -277,12 +314,18 @@
     </header>
 
     <div class="hero">
-      <div class="card hero-left">
-        <span class="kicker"><span class="pulse"></span> Open to Data Analyst and Business Analyst roles</span>
-        <h1>Data meets clarity.<br/>I turn messy problems into decisions.</h1>
+      <!-- floating stickers -->
+      <div style="position:absolute; inset:0; pointer-events:none; z-index:0">
+        <span style="position:absolute; top:12%; left:6%; font-size:34px">✨</span>
+        <span style="position:absolute; top:22%; right:8%; font-size:28px">💗</span>
+        <span style="position:absolute; bottom:18%; left:10%; font-size:30px">📊</span>
+        <span style="position:absolute; bottom:12%; right:12%; font-size:26px">🌸</span>
+      </div>
+      <div class="card hero-left">$1<h1><span class="gradtext">Cute data.</span><br/>Clear decisions.</h1>
         <p class="subtitle">
-          December 2025 graduate with hands-on experience across multiple domains. I work end-to-end: define the problem,
-          validate data, analyze patterns, and deliver clean dashboards and insights stakeholders can trust.
+          Actively seeking full-time roles as a <strong>Data Analyst</strong>.
+          I’m a December 2025 graduate who loves working with data, visuals, and messy questions.
+          I enjoy exploring patterns, building dashboards, and turning numbers into insights people actually understand.
         </p>
 
         <div class="cta-row">
@@ -293,10 +336,11 @@
         </div>
 
         <div class="mini-grid" aria-label="Quick highlights">
-          <div class="mini">
-            <div class="label">Strength</div>
-            <div class="value">Ownership</div>
-          </div>
+          <div class="mini"><div class="label">Energy</div><div class="value">Self‑starter ✨</div></div>
+          <div class="mini"><div class="label">Style</div><div class="value">Creative + Curious</div></div>
+          <div class="mini"><div class="label">Focus</div><div class="value">Impact 💡</div></div>
+        </div>
+      </div>
           <div class="mini">
             <div class="label">Style</div>
             <div class="value">Self-starter</div>
@@ -328,9 +372,16 @@
       </div>
     </div>
 
+    <!-- Wavy divider -->
+    <div aria-hidden="true" style="margin-top:14px; opacity:.9">
+      <svg viewBox="0 0 1200 90" width="100%" height="90" preserveAspectRatio="none">
+        <path d="M0,40 C150,80 350,0 600,40 C850,80 1050,10 1200,45 L1200,90 L0,90 Z" fill="rgba(255,255,255,.65)"></path>
+      </svg>
+    </div>
+
     <section id="skills" class="grid">
       <div class="card section-card">
-        <h2>Skills I use to deliver results</h2>
+        <h2>My data toolbox 🧰</h2>
         <p>
           I keep it practical. My focus is clean data, strong analysis, and outputs people can actually use.
         </p>
@@ -344,7 +395,7 @@
       </div>
 
       <div class="card section-card" id="strengths">
-        <h2>What I bring to the table</h2>
+        <h2>What working with me feels like 💕</h2>
         <ul class="list">
           <li class="li">
             <div class="top"><span class="title">Honesty + ownership</span><span class="meta">I take responsibility</span></div>
@@ -364,7 +415,7 @@
 
     <section id="education" class="grid">
       <div class="card section-card">
-        <h2>Education</h2>
+        <h2>My journey 🎓</h2>
         <ul class="list">
           <li class="li">
             <div class="top"><span class="title">Northeastern University</span><span class="meta">Boston, MA</span></div>
@@ -378,7 +429,7 @@
       </div>
 
       <div class="card section-card" id="work">
-        <h2>What I can do as a data analyst</h2>
+        <h2>Things I love doing with data 📈</h2>
         <ul class="list">
           <li class="li">
             <div class="top"><span class="title">Build dashboards people trust</span><span class="meta">Power BI / Tableau</span></div>
@@ -398,7 +449,7 @@
 
     <footer id="contact">
       <div class="foot-left">
-        <div style="font-weight:800; font-size:16px">Let’s connect</div>
+        <div style="font-weight:800; font-size:16px">Let’s build something cool together 💌</div>
         <div class="fine">Hiring, referrals, collaborations, or just a quick hello. I respond fast.</div>
       </div>
       <div class="cta-row">

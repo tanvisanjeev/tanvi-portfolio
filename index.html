@@ -11,200 +11,277 @@
   <style>
     :root{
       --bg:#fff7fb;
-      --card:#ffffff;
+      --card:rgba(255,255,255,.82);
       --text:#1f1a24;
       --muted:#6b5b6f;
       --line:rgba(31,26,36,.14);
       --accent:#ff6fb1;
       --accent2:#9ad7ff;
-      --radius:20px;
-      --shadow:0 20px 40px rgba(31,26,36,.14);
+      --shadow: 0 18px 42px rgba(31,26,36,.14);
+      --radius: 20px;
     }
-
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family:"Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+      font-family:"Plus Jakarta Sans", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color:var(--text);
       background:
-        radial-gradient(900px 500px at 15% 0%, rgba(255,111,177,.28), transparent 55%),
-        radial-gradient(900px 500px at 85% 10%, rgba(154,215,255,.28), transparent 55%),
+        radial-gradient(900px 520px at 15% 0%, rgba(255,111,177,.26), transparent 55%),
+        radial-gradient(900px 520px at 85% 10%, rgba(154,215,255,.26), transparent 55%),
+        radial-gradient(700px 420px at 55% 95%, rgba(167,139,250,.14), transparent 58%),
         var(--bg);
+      overflow-x:hidden;
     }
-
-    .wrap{max-width:1100px;margin:0 auto;padding:28px 18px 60px}
+    .wrap{max-width:1100px;margin:0 auto;padding:26px 18px 60px; position:relative;}
 
     header{
-      display:flex;justify-content:space-between;align-items:center;
-      padding:14px 0;margin-bottom:20px
+      display:flex;align-items:center;justify-content:space-between;gap:16px;
+      padding:14px 0;
+      position:sticky;top:0;
+      backdrop-filter: blur(10px);
+      z-index:10;
     }
-    .brand{font-weight:800}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800}
+    .dot{
+      width:12px;height:12px;border-radius:999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow:0 0 0 6px rgba(255,111,177,.16);
+    }
+    nav{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end}
     nav a{
-      margin-left:16px;text-decoration:none;color:var(--muted);font-size:14px
+      color:var(--muted);text-decoration:none;font-size:14px;
+      padding:8px 10px;border-radius:999px;border:1px solid transparent;
     }
+    nav a:hover{color:var(--text);border-color:var(--line);background:rgba(255,255,255,.35)}
 
     /* HERO */
-    .hero{
-      display:grid;grid-template-columns:1.2fr .8fr;gap:20px
-    }
-
+    .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:stretch;margin-top:12px}
     .card{
       background:var(--card);
+      border:1px solid var(--line);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      padding:26px;
+      overflow:hidden;
       position:relative;
-      overflow:hidden
     }
-
+    .card.pad{padding:22px}
     h1{
-      font-family:"Fraunces", serif;
-      font-size:46px;line-height:1.05;margin:0 0 12px
+      margin:12px 0 10px;
+      font-family:"Fraunces", ui-serif, Georgia, serif;
+      font-size:46px;line-height:1.05;letter-spacing:-.2px;
     }
-
     .gradtext{
-      background:linear-gradient(135deg,var(--accent),var(--accent2));
-      -webkit-background-clip:text;background-clip:text;color:transparent
+      background:linear-gradient(135deg, var(--accent), rgba(167,139,250,.9), var(--accent2));
+      -webkit-background-clip:text;background-clip:text;color:transparent;
     }
+    .subtitle{margin:0;color:var(--muted);font-size:16px;line-height:1.65}
 
-    .subtitle{color:var(--muted);font-size:16px;line-height:1.6}
-
-    .cta-row{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+    .cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
     .btn{
-      padding:12px 16px;border-radius:14px;border:none;
-      font-weight:700;font-size:14px;cursor:pointer;text-decoration:none
+      appearance:none;border:none;cursor:pointer;
+      padding:11px 14px;border-radius:14px;
+      font-weight:800;font-size:14px;
+      display:inline-flex;align-items:center;gap:10px;
+      text-decoration:none;
+      transition:transform .08s ease, filter .2s ease;
     }
-    .btn.primary{
-      background:linear-gradient(135deg,var(--accent),var(--accent2));
-      color:#fff
+    .btn:active{transform:translateY(1px)}
+    .btn.primary{color:#fff;background:linear-gradient(135deg,var(--accent),rgba(167,139,250,.95))}
+    .btn.ghost{color:var(--text);background:rgba(255,255,255,.72);border:1px solid var(--line)}
+    .btn:hover{filter:brightness(1.05)}
+
+    /* RIGHT HERO CARD = SKILL STICKER CANVAS */
+    .skill-canvas{
+      padding:18px;
+      min-height:420px;
+      background:
+        radial-gradient(700px 320px at 35% 30%, rgba(255,111,177,.18), transparent 62%),
+        radial-gradient(700px 380px at 70% 60%, rgba(154,215,255,.22), transparent 65%),
+        rgba(255,255,255,.70);
     }
-    .btn.ghost{
-      background:#fff;border:1px solid var(--line);color:var(--text)
+    .skill-canvas h2{
+      margin:2px 0 4px;
+      font-size:14px;
+      color:var(--muted);
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    .skill-canvas .big{
+      font-size:26px;
+      font-weight:900;
+      margin:0 0 10px;
+    }
+    .skill-canvas .hint{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
     }
 
-    /* PHOTO + STICKERS */
-    .photo{
-      min-height:480px;position:relative;border-radius:var(--radius);
-      overflow:hidden;background:#fff
+    .stickers{
+      position:absolute; inset:0;
+      pointer-events:none;
+      z-index:2;
     }
-
-    .photo img{
-      width:100%;height:100%;object-fit:cover;object-position:center 18%
-    }
-
-    .skill-stickers{position:absolute;inset:0;pointer-events:none}
-
     .sticker{
       position:absolute;
-      padding:10px 14px;
+      display:inline-flex;align-items:center;gap:8px;
+      padding:10px 12px;
       border-radius:16px;
-      background:rgba(255,255,255,.9);
       border:1px solid var(--line);
-      font-weight:800;font-size:13px;
-      box-shadow:0 12px 26px rgba(0,0,0,.12);
-      animation:floaty 6s ease-in-out infinite;
-      transform:rotate(var(--r))
+      background:rgba(255,255,255,.86);
+      box-shadow:0 14px 30px rgba(31,26,36,.12);
+      font-weight:900;
+      font-size:13px;
+      transform:rotate(var(--r));
+      animation: floaty 6s ease-in-out infinite;
+      backdrop-filter: blur(10px);
+      white-space:nowrap;
     }
+    .sticker small{
+      display:block;
+      font-weight:800;
+      color:var(--muted);
+      font-size:11px;
+      margin-top:2px;
+    }
+    .emoji{font-size:16px}
 
-    .s1{top:10%;left:8%;--r:-6deg}
-    .s2{top:16%;right:10%;--r:6deg;animation-delay:1s}
-    .s3{top:36%;left:12%;--r:4deg;animation-delay:2s}
-    .s4{top:42%;right:14%;--r:-4deg;animation-delay:2.5s}
-    .s5{bottom:26%;left:10%;--r:-5deg;animation-delay:3s}
-    .s6{bottom:22%;right:12%;--r:6deg;animation-delay:3.6s}
+    /* Sticker positions (fills the whole blank space) */
+    .s1 {top:18%; left:8%;  --r:-6deg; animation-delay:.2s;}
+    .s2 {top:20%; right:10%;--r:7deg;  animation-delay:1.0s;}
+    .s3 {top:35%; left:14%; --r:5deg;  animation-delay:1.6s;}
+    .s4 {top:34%; right:14%;--r:-5deg; animation-delay:2.1s;}
+    .s5 {top:49%; left:8%;  --r:-7deg; animation-delay:2.6s;}
+    .s6 {top:50%; right:10%;--r:6deg;  animation-delay:3.0s;}
+    .s7 {top:64%; left:14%; --r:6deg;  animation-delay:3.4s;}
+    .s8 {top:66%; right:14%;--r:-6deg; animation-delay:3.9s;}
+    .s9 {top:78%; left:10%; --r:4deg;  animation-delay:4.3s;}
+    .s10{top:80%; right:10%;--r:-4deg; animation-delay:4.7s;}
 
     @keyframes floaty{
       0%,100%{transform:translateY(0) rotate(var(--r))}
-      50%{transform:translateY(-12px) rotate(var(--r))}
+      50%{transform:translateY(-10px) rotate(var(--r))}
     }
 
-    section{margin-top:30px}
-    h2{font-size:20px;margin-bottom:10px}
-    p{color:var(--muted);line-height:1.6}
-
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    /* sections */
+    section{margin-top:18px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .section-card{padding:18px}
+    h3{margin:0 0 10px;font-size:18px}
+    p{margin:0;color:var(--muted);line-height:1.65}
 
     footer{
-      margin-top:40px;padding:22px;border-radius:var(--radius);
-      background:#fff;box-shadow:var(--shadow);
-      display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px
+      margin-top:18px;
+      padding:18px;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:rgba(255,255,255,.76);
+      box-shadow:var(--shadow);
+      display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
     }
+    .fine{font-size:12px;color:var(--muted)}
 
-    @media(max-width:900px){
+    @media (max-width:920px){
       .hero{grid-template-columns:1fr}
       h1{font-size:38px}
+      .skill-canvas{min-height:460px}
+    }
+    @media (max-width:640px){
+      nav{display:none}
+      .grid{grid-template-columns:1fr}
+      h1{font-size:34px}
     }
   </style>
 </head>
+
 <body>
+  <div class="wrap">
+    <header>
+      <div class="brand"><span class="dot"></span> Tanvi Kadam</div>
+      <nav>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-<div class="wrap">
-  <header>
-    <div class="brand">Tanvi Kadam</div>
-    <nav>
-      <a href="#skills">Skills</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+    <div class="hero">
+      <!-- LEFT HERO -->
+      <div class="card pad">
+        <h1><span class="gradtext">Data-driven insights.</span><br/>Clear decisions.</h1>
 
-  <div class="hero">
-    <div class="card">
-      <h1><span class="gradtext">Data-driven insights.</span><br>Clear decisions.</h1>
-      <p class="subtitle">
-        Actively seeking full-time roles as a <strong>Data Analyst</strong>.<br>
-        December 2025 graduate · Authorized to work in the U.S.
-      </p>
+        <p class="subtitle">
+          Actively seeking full-time roles as a <strong>Data Analyst</strong>.<br/>
+          December 2025 graduate · Authorized to work in the U.S.
+        </p>
 
-      <div class="cta-row">
-        <a class="btn primary" href="#contact">Know me better</a>
-        <a class="btn ghost" href="https://www.linkedin.com/in/tanvisanjeev/" target="_blank">LinkedIn</a>
+        <div class="cta-row">
+          <a class="btn primary" href="#contact">Know me better</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/tanvisanjeev/" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </div>
+
+      <!-- RIGHT HERO (FILLED WITH STICKERS) -->
+      <div class="card skill-canvas">
+        <h2>My analyst toolkit</h2>
+        <div class="big">Skills at a glance</div>
+        <p class="hint">SQL · Python · BI · Data quality · EDA · Stakeholder-ready reporting</p>
+
+        <div class="stickers" aria-hidden="true">
+          <div class="sticker s1"><span class="emoji">🧾</span> SQL <small>joins · aggregations</small></div>
+          <div class="sticker s2"><span class="emoji">🐍</span> Python <small>pandas · automation</small></div>
+          <div class="sticker s3"><span class="emoji">📊</span> Power BI <small>KPIs · dashboards</small></div>
+          <div class="sticker s4"><span class="emoji">📈</span> Tableau <small>visual storytelling</small></div>
+          <div class="sticker s5"><span class="emoji">🧼</span> Data Cleaning <small>missing · outliers</small></div>
+          <div class="sticker s6"><span class="emoji">🔎</span> EDA <small>patterns · trends</small></div>
+          <div class="sticker s7"><span class="emoji">✅</span> Data Quality <small>validation · audits</small></div>
+          <div class="sticker s8"><span class="emoji">📋</span> Reporting <small>clear insights</small></div>
+          <div class="sticker s9"><span class="emoji">📌</span> KPIs <small>definition · tracking</small></div>
+          <div class="sticker s10"><span class="emoji">🗣️</span> Stakeholders <small>simple summaries</small></div>
+        </div>
       </div>
     </div>
 
-    <div class="photo">
-      <img src="tanvi.jpg" alt="Tanvi Kadam">
-
-      <div class="skill-stickers">
-        <div class="sticker s1">SQL</div>
-        <div class="sticker s2">Python</div>
-        <div class="sticker s3">Power BI</div>
-        <div class="sticker s4">Tableau</div>
-        <div class="sticker s5">EDA</div>
-        <div class="sticker s6">Data Quality</div>
+    <section id="skills" class="grid">
+      <div class="card section-card">
+        <h3>Core Skills</h3>
+        <p>SQL · Python · R · Power BI · Tableau · Excel · Data Cleaning · Dashboards · KPI Reporting</p>
       </div>
+      <div class="card section-card">
+        <h3>What I Bring</h3>
+        <p>Ownership · Self-starter · Cross-domain experience · Clear communication · Strong follow-through</p>
+      </div>
+    </section>
+
+    <section id="education" class="grid">
+      <div class="card section-card">
+        <h3>Education</h3>
+        <p><strong>Northeastern University</strong><br/>Master’s Degree · Graduated December 2025</p>
+      </div>
+      <div class="card section-card">
+        <h3>Focus</h3>
+        <p>Decision-ready analysis, clean dashboards, and reliable data workflows that teams can trust.</p>
+      </div>
+    </section>
+
+    <footer id="contact">
+      <div>
+        <div style="font-weight:900;font-size:16px">Let’s connect</div>
+        <div class="fine">Open to full-time Data Analyst opportunities</div>
+      </div>
+      <div class="cta-row">
+        <a class="btn primary" href="mailto:kadam.ta@northeastern.edu">Email me</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/tanvisanjeev/" target="_blank" rel="noreferrer">Message on LinkedIn</a>
+      </div>
+    </footer>
+
+    <div class="fine" style="margin-top:12px;text-align:center;opacity:.9">
+      © <span id="yr"></span> Tanvi Kadam
     </div>
   </div>
 
-  <section id="skills" class="grid">
-    <div class="card">
-      <h2>Core Skills</h2>
-      <p>SQL · Python · R · Power BI · Tableau · Excel · Data Cleaning · Dashboards · KPI Reporting</p>
-    </div>
-    <div class="card">
-      <h2>What I Bring</h2>
-      <p>Ownership · Self-starter · Cross-domain experience · Clear communication · Strong follow-through</p>
-    </div>
-  </section>
-
-  <section id="education">
-    <div class="card">
-      <h2>Education</h2>
-      <p><strong>Northeastern University</strong><br>Master’s Degree · Graduated December 2025</p>
-    </div>
-  </section>
-
-  <footer id="contact">
-    <div>
-      <strong>Let’s connect</strong>
-      <p>Open to full-time Data Analyst opportunities</p>
-    </div>
-    <div class="cta-row">
-      <a class="btn primary" href="mailto:kadam.ta@northeastern.edu">Email me</a>
-      <a class="btn ghost" href="https://www.linkedin.com/in/tanvisanjeev/" target="_blank">Message on LinkedIn</a>
-    </div>
-  </footer>
-</div>
-
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

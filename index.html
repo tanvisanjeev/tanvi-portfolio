@@ -17,11 +17,8 @@
       --line:rgba(31,26,36,.14);
       --accent:#ff6fb1;
       --accent2:#9ad7ff;
-      --lav:#c4b5fd;
-      --mint:#8eeadf;
-      --radius:22px;
+      --radius:20px;
       --shadow:0 20px 40px rgba(31,26,36,.14);
-      --shadow2:0 26px 50px rgba(31,26,36,.18);
     }
 
     *{box-sizing:border-box}
@@ -30,237 +27,154 @@
       font-family:"Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
       color:var(--text);
       background:
-        radial-gradient(900px 500px at 15% 0%, rgba(255,111,177,.26), transparent 55%),
-        radial-gradient(900px 500px at 85% 10%, rgba(154,215,255,.26), transparent 55%),
-        radial-gradient(700px 420px at 55% 95%, rgba(196,181,253,.18), transparent 60%),
+        radial-gradient(900px 500px at 15% 0%, rgba(255,111,177,.28), transparent 55%),
+        radial-gradient(900px 500px at 85% 10%, rgba(154,215,255,.28), transparent 55%),
         var(--bg);
-      overflow-x:hidden;
     }
 
-    .wrap{max-width:1100px;margin:0 auto;padding:28px 18px 70px}
+    .wrap{max-width:1100px;margin:0 auto;padding:28px 18px 60px}
 
     header{
-      display:flex;justify-content:space-between;align-items:center;
+      display:flex;justify-content:flex-end;align-items:center;
       padding:14px 0;margin-bottom:18px
     }
-    .brand{font-weight:900;display:flex;align-items:center;gap:10px}
-    .brand-dot{
-      width:12px;height:12px;border-radius:999px;
-      background:linear-gradient(135deg,var(--accent),var(--accent2));
-      box-shadow:0 0 0 6px rgba(255,111,177,.14);
-    }
+
     nav a{
       margin-left:12px;text-decoration:none;color:var(--muted);font-size:14px;
       padding:8px 10px;border-radius:999px;border:1px solid transparent;
     }
     nav a:hover{color:var(--text);border-color:var(--line);background:rgba(255,255,255,.35)}
 
+    /* Mini profile in hero card */
+    .mini-profile{
+      display:flex;align-items:center;gap:12px;
+      margin-bottom:16px;
+      padding:10px 12px;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.70);
+      box-shadow:0 10px 22px rgba(31,26,36,.10);
+    }
+    .mini-profile .avatar{
+      width:46px;height:46px;border-radius:14px;
+      overflow:hidden;flex:0 0 46px;
+      border:1px solid rgba(31,26,36,.12);
+      background:linear-gradient(135deg, rgba(255,111,177,.35), rgba(154,215,255,.35));
+    }
+    .mini-profile .avatar img{
+      width:100%;height:100%;object-fit:cover;object-position:center 20%;
+      display:block;
+    }
+    .mini-profile .name{
+      font-weight:950;font-size:14px;line-height:1.15;margin:0;
+    }
+    .mini-profile .pronouns{
+      color:var(--muted);font-weight:800;font-size:12px;margin-left:8px;
+    }
+    .mini-profile .headline{
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.35;
+      margin-top:4px;
+    }
+
     /* HERO */
     .hero{
-      display:grid;grid-template-columns:1.15fr .85fr;gap:18px;
-      align-items:stretch;
+      display:grid;grid-template-columns:1.2fr .8fr;gap:20px
     }
 
     .card{
-      background:rgba(255,255,255,.82);
-      border:1px solid var(--line);
+      background:var(--card);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      padding:24px;
+      padding:26px;
       position:relative;
       overflow:hidden
     }
 
     h1{
       font-family:"Fraunces", serif;
-      font-size:46px;line-height:1.05;margin:0 0 12px;
-      letter-spacing:-.2px;
+      font-size:46px;line-height:1.05;margin:0 0 12px
     }
 
     .gradtext{
-      background:linear-gradient(135deg,var(--accent),var(--lav),var(--accent2));
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
       -webkit-background-clip:text;background-clip:text;color:transparent
     }
 
-    .subtitle{color:var(--muted);font-size:16px;line-height:1.65;margin:0}
+    .subtitle{color:var(--muted);font-size:16px;line-height:1.6}
 
-    .cta-row{margin-top:16px;display:flex;gap:12px;flex-wrap:wrap}
+    .cta-row{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
     .btn{
       padding:12px 16px;border-radius:14px;border:none;
-      font-weight:800;font-size:14px;cursor:pointer;text-decoration:none;
-      display:inline-flex;align-items:center;gap:10px;
-      transition:transform .08s ease, filter .2s ease;
+      font-weight:700;font-size:14px;cursor:pointer;text-decoration:none
     }
-    .btn:active{transform:translateY(1px)}
     .btn.primary{
-      background:linear-gradient(135deg,var(--accent),var(--lav));
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
       color:#fff
     }
     .btn.ghost{
       background:#fff;border:1px solid var(--line);color:var(--text)
     }
-    .btn:hover{filter:brightness(1.03)}
 
-    /* RIGHT HERO TOOLKIT */
-    .sticker-canvas{
-      background:
-        radial-gradient(800px 360px at 40% 25%, rgba(255,111,177,.18), transparent 60%),
-        radial-gradient(760px 420px at 70% 65%, rgba(154,215,255,.20), transparent 62%),
-        rgba(255,255,255,.62);
-    }
-    .sticker-canvas h2{
-      margin:0;
-      font-size:14px;
-      color:var(--muted);
-      font-weight:900;
-      letter-spacing:.2px;
-    }
-    .sticker-canvas .big{
-      font-size:30px;
-      font-weight:900;
-      margin:6px 0 0;
-      line-height:1.1;
+    /* PHOTO + STICKERS */
+    .photo{
+      min-height:480px;position:relative;border-radius:var(--radius);
+      overflow:hidden;background:#fff
     }
 
-    /* SYSTEMATIC OVERLAP (EVERYTHING VISIBLE) */
-    .skill-stack{
-      position:relative;
-      height:360px;
-      margin-top:16px;
+    .photo img{
+      width:100%;height:100%;object-fit:cover;object-position:center 18%
     }
-    .skill-pill{
+
+    .skill-stickers{position:absolute;inset:0;pointer-events:none}
+
+    .sticker{
       position:absolute;
-      left:50%;
-      transform:translateX(-50%) rotate(var(--r));
-      width:84%;
-      background:rgba(255,255,255,.92);
-      border-radius:18px;
-      padding:14px 18px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:12px;
-      box-shadow:0 18px 34px rgba(31,26,36,.14);
-      border:1px solid rgba(31,26,36,.10);
-      transition:transform .25s ease, box-shadow .25s ease, filter .2s ease;
-      user-select:none;
-    }
-    .skill-pill strong{font-weight:950}
-    .skill-pill .left{
-      display:flex;align-items:center;gap:10px;font-weight:950;
-    }
-    .skill-pill .icon{font-size:16px}
-    .skill-pill .right{
-      font-weight:700;
-      font-size:13px;
-      color:var(--muted);
-      white-space:nowrap;
-    }
-    .skill-pill:hover{
-      transform:translateX(-50%) rotate(0deg) scale(1.03);
-      z-index:99;
-      box-shadow:var(--shadow2);
-      filter:brightness(1.02);
-    }
-
-    /* vertical overlap positions */
-    .s-a{top:0;--r:-3deg}
-    .s-b{top:36px;--r:3deg}
-    .s-c{top:72px;--r:-2deg}
-    .s-d{top:108px;--r:2deg}
-    .s-e{top:144px;--r:-2deg}
-    .s-f{top:180px;--r:2deg}
-    .s-g{top:216px;--r:-2deg}
-    .s-h{top:252px;--r:2deg}
-    .s-i{top:288px;--r:-1deg}
-    .s-j{top:324px;--r:1deg}
-
-    /* INFO CARDS (CLICKABLE FEEL + COLOR) */
-    .info-grid{
-      margin-top:22px;
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:18px;
-    }
-    .info-card{
-      background:rgba(255,255,255,.82);
+      padding:10px 14px;
+      border-radius:16px;
+      background:rgba(255,255,255,.9);
       border:1px solid var(--line);
-      border-radius:22px;
-      box-shadow:var(--shadow);
-      padding:22px;
-      cursor:pointer;
-      transition:transform .22s ease, box-shadow .22s ease, filter .18s ease;
-      position:relative;
-      overflow:hidden;
+      font-weight:800;font-size:13px;
+      box-shadow:0 12px 26px rgba(0,0,0,.12);
+      animation:floaty 6s ease-in-out infinite;
+      transform:rotate(var(--r))
     }
-    .info-card:hover{
-      transform:translateY(-6px);
-      box-shadow:var(--shadow2);
-      filter:brightness(1.02);
-    }
-    .info-card:active{transform:translateY(-3px)}
-    .info-card h3{
-      margin:0 0 10px;
-      font-size:18px;
-      font-weight:950;
-    }
-    .info-card p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.65;
-    }
-    .accent-bar{
-      position:absolute;left:0;top:0;bottom:0;width:7px;
-      background:linear-gradient(180deg, rgba(255,255,255,.0), rgba(255,255,255,.0));
-    }
-    .pink  .accent-bar{background:linear-gradient(180deg, #ff9acb, #ffd1e6)}
-    .blue  .accent-bar{background:linear-gradient(180deg, #9ad7ff, #d9f1ff)}
-    .lav   .accent-bar{background:linear-gradient(180deg, #c4b5fd, #efeaff)}
-    .mint  .accent-bar{background:linear-gradient(180deg, #8eeadf, #dffaf6)}
 
-    .info-card::after{
-      content:"";
-      position:absolute;inset:-40px;
-      background:
-        radial-gradient(240px 160px at 20% 15%, rgba(255,111,177,.10), transparent 60%),
-        radial-gradient(260px 180px at 85% 20%, rgba(154,215,255,.12), transparent 62%);
-      transform:rotate(6deg);
-      opacity:.7;
-      pointer-events:none;
-    }
-    .info-card *{position:relative;z-index:1}
+    .s1{top:10%;left:8%;--r:-6deg}
+    .s2{top:16%;right:10%;--r:6deg;animation-delay:1s}
+    .s3{top:36%;left:12%;--r:4deg;animation-delay:2s}
+    .s4{top:42%;right:14%;--r:-4deg;animation-delay:2.5s}
+    .s5{bottom:26%;left:10%;--r:-5deg;animation-delay:3s}
+    .s6{bottom:22%;right:12%;--r:6deg;animation-delay:3.6s}
 
-    /* FOOTER */
+    @keyframes floaty{
+      0%,100%{transform:translateY(0) rotate(var(--r))}
+      50%{transform:translateY(-12px) rotate(var(--r))}
+    }
+
+    section{margin-top:30px}
+    h2{font-size:20px;margin-bottom:10px}
+    p{color:var(--muted);line-height:1.6}
+
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+
     footer{
-      margin-top:22px;padding:22px;border-radius:var(--radius);
-      background:rgba(255,255,255,.82);
-      border:1px solid var(--line);
-      box-shadow:var(--shadow);
-      display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;
-      align-items:center;
+      margin-top:40px;padding:22px;border-radius:var(--radius);
+      background:#fff;box-shadow:var(--shadow);
+      display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px
     }
-    .foot-title{font-weight:950;font-size:16px;margin-bottom:4px}
-    .fine{font-size:12px;color:var(--muted);margin-top:10px;text-align:center;opacity:.9}
 
     @media(max-width:900px){
       .hero{grid-template-columns:1fr}
       h1{font-size:38px}
-      .skill-stack{height:390px}
-      .s-j{top:336px}
-      .info-grid{grid-template-columns:1fr}
-    }
-    @media(max-width:520px){
-      h1{font-size:34px}
-      .skill-pill{width:92%}
-      nav{display:none}
     }
   </style>
 </head>
-
 <body>
+
 <div class="wrap">
   <header>
-    <div class="brand"><span class="brand-dot"></span> Tanvi Kadam</div>
     <nav>
       <a href="#skills">Skills</a>
       <a href="#education">Education</a>
@@ -269,8 +183,17 @@
   </header>
 
   <div class="hero">
-    <!-- LEFT HERO -->
     <div class="card">
+      <div class="mini-profile" aria-label="Profile summary">
+        <div class="avatar" aria-hidden="true">
+          <img src="tanvi.jpg" alt="Tanvi Sanjeev Kadam" onerror="this.style.display='none'" />
+        </div>
+        <div>
+          <div class="name">Tanvi Sanjeev Kadam <span class="pronouns">She/Her</span></div>
+          <div class="headline">Data Analyst | MS Data Analytics &amp; AI @ Northeastern | Co-op @ ImEx Cargo LLC | Python/R/SQL, BI Tools, GenAI, AI Agents, Data/Business Analytics, Marketing/CRM Analytics</div>
+        </div>
+      </div>
+
       <h1><span class="gradtext">Data-driven insights.</span><br>Clear decisions.</h1>
       <p class="subtitle">
         Actively seeking full-time roles as a <strong>Data Analyst</strong>.<br>
@@ -279,119 +202,53 @@
 
       <div class="cta-row">
         <a class="btn primary" href="#contact">Know me better</a>
-        <a class="btn ghost" href="https://www.linkedin.com/in/tanvisanjeev/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/tanvisanjeev/" target="_blank">LinkedIn</a>
       </div>
     </div>
 
-    <!-- RIGHT HERO TOOLKIT (no extra line under title) -->
-    <div class="card sticker-canvas">
-      <h2>My analyst toolkit</h2>
-      <div class="big">Skills at a glance</div>
+    <div class="photo">
+      <img src="tanvi.jpg" alt="Tanvi Kadam">
 
-      <div class="skill-stack" aria-label="Data analyst skills">
-        <div class="skill-pill s-a">
-          <div class="left"><span class="icon">🧾</span><strong>SQL</strong></div>
-          <div class="right">joins · aggregations</div>
-        </div>
-
-        <div class="skill-pill s-b">
-          <div class="left"><span class="icon">🐍</span><strong>Python</strong></div>
-          <div class="right">pandas · automation</div>
-        </div>
-
-        <div class="skill-pill s-c">
-          <div class="left"><span class="icon">📊</span><strong>Power BI</strong></div>
-          <div class="right">KPI dashboards</div>
-        </div>
-
-        <div class="skill-pill s-d">
-          <div class="left"><span class="icon">📈</span><strong>Tableau</strong></div>
-          <div class="right">visual storytelling</div>
-        </div>
-
-        <div class="skill-pill s-e">
-          <div class="left"><span class="icon">🧼</span><strong>Data Cleaning</strong></div>
-          <div class="right">missing · outliers</div>
-        </div>
-
-        <div class="skill-pill s-f">
-          <div class="left"><span class="icon">🔍</span><strong>EDA</strong></div>
-          <div class="right">patterns · trends</div>
-        </div>
-
-        <div class="skill-pill s-g">
-          <div class="left"><span class="icon">✅</span><strong>Data Quality</strong></div>
-          <div class="right">validation · audits</div>
-        </div>
-
-        <div class="skill-pill s-h">
-          <div class="left"><span class="icon">📋</span><strong>Reporting</strong></div>
-          <div class="right">clear insights</div>
-        </div>
-
-        <div class="skill-pill s-i">
-          <div class="left"><span class="icon">📌</span><strong>KPIs</strong></div>
-          <div class="right">definition · tracking</div>
-        </div>
-
-        <div class="skill-pill s-j">
-          <div class="left"><span class="icon">🗣️</span><strong>Stakeholders</strong></div>
-          <div class="right">simple summaries</div>
-        </div>
+      <div class="skill-stickers">
+        <div class="sticker s1">SQL</div>
+        <div class="sticker s2">Python</div>
+        <div class="sticker s3">Power BI</div>
+        <div class="sticker s4">Tableau</div>
+        <div class="sticker s5">EDA</div>
+        <div class="sticker s6">Data Quality</div>
       </div>
     </div>
   </div>
 
-  <!-- CLICKABLE / HOVER CARDS -->
-  <section id="skills" class="info-grid">
-    <div class="info-card pink" role="button" tabindex="0" aria-label="Core Skills card">
-      <span class="accent-bar" aria-hidden="true"></span>
-      <h3>Core Skills</h3>
-      <p>SQL · Python · R · Power BI · Tableau · Excel</p>
+  <section id="skills" class="grid">
+    <div class="card">
+      <h2>Core Skills</h2>
+      <p>SQL · Python · R · Power BI · Tableau · Excel · Data Cleaning · Dashboards · KPI Reporting</p>
     </div>
-
-    <div class="info-card blue" role="button" tabindex="0" aria-label="What I Bring card">
-      <span class="accent-bar" aria-hidden="true"></span>
-      <h3>What I Bring</h3>
-      <p>Ownership · Self-starter · Clear communication · Strong follow-through</p>
+    <div class="card">
+      <h2>What I Bring</h2>
+      <p>Ownership · Self-starter · Cross-domain experience · Clear communication · Strong follow-through</p>
     </div>
+  </section>
 
-    <div id="education" class="info-card lav" role="button" tabindex="0" aria-label="Education card">
-      <span class="accent-bar" aria-hidden="true"></span>
-      <h3>Education</h3>
-      <p><strong>Northeastern University</strong><br>Master’s · Graduated December 2025</p>
-    </div>
-
-    <div class="info-card mint" role="button" tabindex="0" aria-label="Focus card">
-      <span class="accent-bar" aria-hidden="true"></span>
-      <h3>Focus</h3>
-      <p>Decision-ready analysis, clean dashboards, and reliable data workflows teams can trust.</p>
+  <section id="education">
+    <div class="card">
+      <h2>Education</h2>
+      <p><strong>Northeastern University</strong><br>Master’s Degree · Graduated December 2025</p>
     </div>
   </section>
 
   <footer id="contact">
     <div>
-      <div class="foot-title">Let’s connect</div>
-      <div class="subtitle" style="margin:0">Open to full-time Data Analyst opportunities</div>
+      <strong>Let’s connect</strong>
+      <p>Open to full-time Data Analyst opportunities</p>
     </div>
-    <div class="cta-row" style="margin:0">
+    <div class="cta-row">
       <a class="btn primary" href="mailto:kadam.ta@northeastern.edu">Email me</a>
-      <a class="btn ghost" href="https://www.linkedin.com/in/tanvisanjeev/" target="_blank" rel="noreferrer">Message on LinkedIn</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/tanvisanjeev/" target="_blank">Message on LinkedIn</a>
     </div>
   </footer>
-
-  <div class="fine">© <span id="yr"></span> Tanvi Kadam</div>
 </div>
 
-<script>
-  document.getElementById('yr').textContent = new Date().getFullYear();
-
-  // Optional: make cards feel clickable (keyboard-friendly)
-  document.querySelectorAll('.info-card').forEach(card=>{
-    card.addEventListener('keydown', (e)=>{
-      if(e.key === 'Enter' || e.key === ' ') card.click();
-    });
-  });
-</script>
 </body>
 </html>

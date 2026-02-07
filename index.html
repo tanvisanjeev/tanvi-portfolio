@@ -40,6 +40,8 @@
       display:flex;justify-content:space-between;align-items:center;
       padding:10px 0 18px;margin-bottom:8px
     }
+
+    /* ✅ brand name removed; keep only dot */
     .brand{
       display:flex;align-items:center;gap:10px;font-weight:800
     }
@@ -48,6 +50,7 @@
       background:linear-gradient(135deg,var(--accent),var(--accent2));
       box-shadow:0 10px 20px rgba(255,111,177,.25);
     }
+
     nav a{
       margin-left:16px;text-decoration:none;color:var(--muted);font-size:14px;
       padding:8px 10px;border-radius:12px
@@ -68,11 +71,11 @@
       position:relative;
       overflow:hidden;
       backdrop-filter: blur(6px);
+      transition:transform .18s ease, box-shadow .18s ease;
     }
 
     .card:hover{
       transform:translateY(-2px);
-      transition:transform .18s ease;
       box-shadow:0 22px 52px rgba(31,26,36,.16);
     }
 
@@ -86,8 +89,6 @@
       background:linear-gradient(135deg,var(--accent),var(--accent2));
       -webkit-background-clip:text;background-clip:text;color:transparent
     }
-
-    .subtitle{color:var(--muted);font-size:16px;line-height:1.6;margin:0}
 
     /* LEFT CARD STRUCTURE */
     .lead-block{margin-top:10px;display:grid;grid-template-columns:140px 1fr;gap:18px;align-items:center}
@@ -130,7 +131,8 @@
     .btn{
       padding:12px 16px;border-radius:14px;border:none;
       font-weight:800;font-size:14px;cursor:pointer;text-decoration:none;
-      display:inline-flex;align-items:center;justify-content:center;gap:8px
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      transition:transform .15s ease, filter .15s ease, background .15s ease;
     }
     .btn.primary{
       background:linear-gradient(135deg,var(--accent),var(--accent2));
@@ -174,24 +176,25 @@
       margin-top:2px;
     }
 
+    /* ✅ Fill blank space: 10 stickers, tighter spacing */
     .skill-stickers{
       position:absolute;
-      top:86px;              /* right under header pill */
+      top:86px;
       left:50%;
       transform:translateX(-50%);
       width:100%;
-      max-width:430px;
-      padding:18px 14px 18px;
+      max-width:470px;
+      padding:14px 14px 18px;
       display:grid;
       grid-template-columns:repeat(2, 1fr);
-      gap:16px 14px;
+      gap:14px 12px;
       pointer-events:none;
     }
 
     .sticker{
       justify-self:center;
       width:100%;
-      max-width:210px;
+      max-width:230px;
       padding:10px 12px;
       border-radius:18px;
       background:rgba(255,255,255,.92);
@@ -205,13 +208,15 @@
     .sticker b{font-weight:900;color:var(--text)}
     .sticker span{color:var(--muted);font-weight:800;margin-left:8px;font-size:12px}
 
-    .sticker:nth-child(2){animation-delay:.7s}
-    .sticker:nth-child(3){animation-delay:1.4s}
-    .sticker:nth-child(4){animation-delay:2.1s}
-    .sticker:nth-child(5){animation-delay:2.8s}
-    .sticker:nth-child(6){animation-delay:3.5s}
-    .sticker:nth-child(7){animation-delay:4.2s}
-    .sticker:nth-child(8){animation-delay:4.9s}
+    .sticker:nth-child(2){animation-delay:.6s}
+    .sticker:nth-child(3){animation-delay:1.2s}
+    .sticker:nth-child(4){animation-delay:1.8s}
+    .sticker:nth-child(5){animation-delay:2.4s}
+    .sticker:nth-child(6){animation-delay:3.0s}
+    .sticker:nth-child(7){animation-delay:3.6s}
+    .sticker:nth-child(8){animation-delay:4.2s}
+    .sticker:nth-child(9){animation-delay:4.8s}
+    .sticker:nth-child(10){animation-delay:5.4s}
 
     @keyframes floaty{
       0%,100%{transform:translateY(0)}
@@ -268,15 +273,16 @@
     @media(max-width:950px){
       .hero{grid-template-columns:1fr}
       h1{font-size:40px}
-      .skills-card{min-height:520px}
+      .skills-card{min-height:540px}
       .lead-block{grid-template-columns:120px 1fr}
       .portrait{width:120px;height:120px}
     }
     @media(max-width:520px){
       .lead-block{grid-template-columns:1fr}
       .portrait{width:120px;height:120px}
-      .skill-stickers{max-width:360px}
-      .sticker{max-width:180px}
+      .skill-stickers{max-width:380px}
+      .sticker{max-width:190px}
+      .skills-card{min-height:620px}
     }
   </style>
 </head>
@@ -285,7 +291,8 @@
   <div class="wrap">
 
     <header>
-      <div class="brand"><span class="dot"></span> Tanvi Kadam</div>
+      <!-- ✅ Only dot -->
+      <div class="brand"><span class="dot" aria-hidden="true"></span></div>
       <nav>
         <a href="#skills">Skills</a>
         <a href="#education">Education</a>
@@ -298,13 +305,10 @@
       <!-- LEFT MAIN CARD -->
       <div class="card">
 
-        <!-- 1) HEADLINE FIRST -->
         <h1><span class="gradtext">Data-driven insights.</span><br>Clear decisions.</h1>
 
-        <!-- 2) PHOTO + SEEKING LINE -->
         <div class="lead-block">
           <div class="portrait">
-            <!-- Make sure this file exists in your repo root (same folder as index.html) -->
             <img src="tanvi.jpg" alt="Tanvi Sanjeev Kadam">
           </div>
 
@@ -313,7 +317,6 @@
           </p>
         </div>
 
-        <!-- 3) NAME + DETAILS (ONLY ONCE) -->
         <div class="bio">
           <p class="name-line">Tanvi Sanjeev Kadam <span>She/Her</span></p>
           <p class="role">
@@ -326,7 +329,6 @@
           </div>
         </div>
 
-        <!-- 4) BUTTONS -->
         <div class="cta-row">
           <a class="btn primary" href="#contact">Know me better</a>
           <a class="btn ghost" href="https://www.linkedin.com/in/tanvisanjeev/" target="_blank" rel="noreferrer">LinkedIn</a>
@@ -343,12 +345,14 @@
         <div class="skill-stickers">
           <div class="sticker"><b>SQL</b><span>joins · aggregations</span></div>
           <div class="sticker"><b>Python</b><span>pandas · automation</span></div>
-          <div class="sticker"><b>Power BI</b><span>KPI dashboards</span></div>
-          <div class="sticker"><b>Tableau</b><span>visual storytelling</span></div>
-          <div class="sticker"><b>Data Cleaning</b><span>missing · outliers</span></div>
+          <div class="sticker"><b>Power BI</b><span>DAX · KPIs</span></div>
+          <div class="sticker"><b>Tableau</b><span>dashboards</span></div>
+          <div class="sticker"><b>Excel</b><span>pivots · lookups</span></div>
           <div class="sticker"><b>EDA</b><span>patterns · trends</span></div>
+          <div class="sticker"><b>Data Cleaning</b><span>missing · outliers</span></div>
           <div class="sticker"><b>Data Quality</b><span>validation · audits</span></div>
-          <div class="sticker"><b>Reporting</b><span>stakeholder-ready</span></div>
+          <div class="sticker"><b>Storytelling</b><span>clear narratives</span></div>
+          <div class="sticker"><b>Stakeholders</b><span>exec-ready</span></div>
         </div>
       </div>
 

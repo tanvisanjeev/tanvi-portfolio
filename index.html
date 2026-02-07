@@ -1,376 +1,252 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tanvi Sanjeev Kadam | Data Analyst</title>
-  <meta name="description" content="Tanvi Sanjeev Kadam — Data Analyst. SQL, Python, R, Power BI, Tableau. Actively seeking full-time roles." />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tanvi Sanjeev Kadam | Data Analyst</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Fraunces:wght@600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Fraunces:wght@700;900&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --bg:#fff7fb;
-      --card:#ffffff;
-      --text:#1f1a24;
-      --muted:#6b5b6f;
-      --line:rgba(31,26,36,.14);
-      --accent:#ff6fb1;
-      --accent2:#9ad7ff;
-      --lav:#c4b5fd;
-      --mint:#8eeadf;
-      --radius:22px;
-      --shadow:0 20px 40px rgba(31,26,36,.14);
-    }
+<style>
+:root{
+  --bg:#fff4f8;
+  --card:#ffffff;
+  --text:#1f1a24;
+  --muted:#6b5b6f;
+  --line:rgba(31,26,36,.14);
+  --accent:#ff7abf;
+  --accent2:#9ad7ff;
+  --radius:22px;
+  --shadow:0 20px 40px rgba(31,26,36,.14);
+}
 
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:"Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(900px 500px at 15% 0%, rgba(255,111,177,.26), transparent 55%),
-        radial-gradient(900px 500px at 85% 10%, rgba(154,215,255,.26), transparent 55%),
-        radial-gradient(700px 420px at 55% 95%, rgba(196,181,253,.18), transparent 60%),
-        var(--bg);
-      overflow-x:hidden;
-    }
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:"Plus Jakarta Sans",sans-serif;
+  background:
+    radial-gradient(700px 400px at 15% 0%, rgba(255,122,191,.35), transparent 60%),
+    radial-gradient(700px 400px at 85% 10%, rgba(154,215,255,.35), transparent 60%),
+    var(--bg);
+  color:var(--text);
+}
 
-    .wrap{max-width:1100px;margin:0 auto;padding:28px 18px 70px}
+.wrap{max-width:1100px;margin:auto;padding:28px}
 
-    header{
-      display:flex;justify-content:flex-end;align-items:center;
-      padding:14px 0;margin-bottom:18px
-    }
-    nav a{
-      margin-left:12px;text-decoration:none;color:var(--muted);font-size:14px;
-      padding:8px 10px;border-radius:999px;border:1px solid transparent;
-    }
-    nav a:hover{color:var(--text);border-color:var(--line);background:rgba(255,255,255,.35)}
+header{
+  display:flex;justify-content:flex-end;gap:22px;
+  font-size:14px;color:var(--muted);margin-bottom:18px
+}
 
-    .hero{
-      display:grid;grid-template-columns:1.15fr .85fr;gap:18px;
-      align-items:stretch;
-    }
+header a{text-decoration:none;color:inherit}
 
-    .card{
-      background:rgba(255,255,255,.82);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:24px;
-      position:relative;
-      overflow:hidden
-    }
+.hero{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:22px;
+}
 
-    /* MINI PROFILE */
-    .mini-profile{
-      display:flex;align-items:center;gap:12px;
-      margin-bottom:16px;
-      padding:10px 12px;
-      border-radius:18px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.72);
-      box-shadow:0 10px 22px rgba(31,26,36,.10);
-    }
-    .mini-profile .avatar{
-      width:46px;height:46px;border-radius:14px;
-      overflow:hidden;flex:0 0 46px;
-      border:1px solid rgba(31,26,36,.12);
-      background:linear-gradient(135deg, rgba(255,111,177,.35), rgba(154,215,255,.35));
-    }
-    .mini-profile .avatar img{
-      width:100%;height:100%;
-      object-fit:cover;
-      object-position:center 30%;
-      display:block;
-    }
-    .mini-profile .name{
-      font-weight:950;font-size:14px;line-height:1.15;margin:0;
-    }
-    .mini-profile .pronouns{
-      color:var(--muted);font-weight:800;font-size:12px;margin-left:8px;
-    }
-    .mini-profile .headline{
-      color:var(--muted);
-      font-size:12px;
-      line-height:1.35;
-      margin-top:4px;
-    }
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:28px;
+}
 
-    h1{
-      font-family:"Fraunces", serif;
-      font-size:46px;line-height:1.05;margin:0 0 10px;
-      letter-spacing:-.2px;
-    }
-    .gradtext{
-      background:linear-gradient(135deg,var(--accent),var(--lav),var(--accent2));
-      -webkit-background-clip:text;background-clip:text;color:transparent
-    }
+/* LEFT CARD */
+.mini-profile{
+  display:flex;gap:14px;align-items:center;
+  background:#fff;
+  border:1px solid var(--line);
+  padding:12px 14px;
+  border-radius:16px;
+  margin-bottom:18px;
+}
+.mini-profile img{
+  width:44px;height:44px;border-radius:50%;object-fit:cover
+}
+.mini-profile strong{font-size:15px}
+.mini-profile span{color:var(--muted);font-size:13px;margin-left:6px}
+.mini-profile p{margin:4px 0 0;font-size:13px;color:var(--muted)}
 
-    /* PHOTO BETWEEN HEADLINE AND TEXT */
-    .hero-inline{
-      display:flex;
-      align-items:center;
-      gap:16px;
-      margin:14px 0 10px;
-    }
+h1{
+  font-family:"Fraunces",serif;
+  font-size:44px;
+  line-height:1.05;
+  margin:0 0 16px;
+}
+.gradtext{
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  color:transparent;
+}
 
-    .inline-photo{
-      width:120px;
-      height:150px;
-      border-radius:18px;
-      object-fit:cover;
-      object-position:center 20%;
-      box-shadow:0 14px 34px rgba(31,26,36,.18);
-      border:1px solid rgba(31,26,36,.12);
-      background:#fff;
-    }
+.hero-inline{
+  display:flex;
+  gap:18px;
+  align-items:flex-start;
+  margin-bottom:18px;
+}
 
-    .hero-subtitle{
-      color:var(--muted);
-      font-size:16px;
-      line-height:1.65;
-      margin:0;
-    }
+.inline-photo{
+  width:120px;
+  height:150px;
+  border-radius:18px;
+  object-fit:cover;
+  box-shadow:0 14px 28px rgba(0,0,0,.18);
+}
 
-    .cta-row{margin-top:14px;display:flex;gap:12px;flex-wrap:wrap}
-    .btn{
-      padding:12px 16px;border-radius:14px;border:none;
-      font-weight:800;font-size:14px;cursor:pointer;text-decoration:none;
-      display:inline-flex;align-items:center;gap:10px;
-      transition:transform .08s ease, filter .2s ease;
-    }
-    .btn:active{transform:translateY(1px)}
-    .btn.primary{
-      background:linear-gradient(135deg,var(--accent),var(--lav));
-      color:#fff
-    }
-    .btn.ghost{
-      background:#fff;border:1px solid var(--line);color:var(--text)
-    }
-    .btn:hover{filter:brightness(1.03)}
+.hero-text{
+  font-size:16px;
+  line-height:1.6;
+  color:var(--muted);
+}
 
-    /* RIGHT SIDE: SKILLS CANVAS (NO PHOTO DUPLICATION) */
-    .skills-canvas{
-      min-height:540px;
-      position:relative;
-      border-radius:var(--radius);
-      overflow:hidden;
-      border:1px solid var(--line);
-      box-shadow:var(--shadow);
-      background:
-        radial-gradient(520px 320px at 20% 20%, rgba(255,111,177,.30), transparent 60%),
-        radial-gradient(520px 320px at 80% 18%, rgba(154,215,255,.30), transparent 60%),
-        radial-gradient(520px 320px at 55% 80%, rgba(196,181,253,.22), transparent 65%),
-        rgba(255,255,255,.85);
-    }
+.cta-row{display:flex;gap:12px;margin-top:10px}
+.btn{
+  padding:12px 16px;
+  border-radius:14px;
+  font-weight:700;
+  font-size:14px;
+  text-decoration:none;
+  display:inline-block;
+}
+.btn.primary{
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#fff;
+}
+.btn.ghost{
+  background:#fff;
+  border:1px solid var(--line);
+  color:var(--text);
+}
 
-    .skills-title{
-      position:absolute;top:18px;left:18px;right:18px;
-      padding:14px 16px;border-radius:18px;
-      background:rgba(255,255,255,.70);
-      border:1px solid var(--line);
-      font-weight:950;
-      box-shadow:0 10px 22px rgba(31,26,36,.10);
-    }
-    .skills-title small{display:block;color:var(--muted);font-weight:800;margin-top:4px}
+/* RIGHT SKILLS CANVAS */
+.skills-canvas{
+  position:relative;
+  border-radius:var(--radius);
+  border:1px solid var(--line);
+  background:
+    radial-gradient(420px 260px at 20% 20%, rgba(255,122,191,.30), transparent 60%),
+    radial-gradient(420px 260px at 80% 20%, rgba(154,215,255,.30), transparent 60%),
+    rgba(255,255,255,.85);
+  box-shadow:var(--shadow);
+  min-height:520px;
+}
 
-    .skill-stickers{position:absolute;inset:0;pointer-events:none}
+.skills-title{
+  position:absolute;
+  top:18px;left:18px;right:18px;
+  padding:14px 16px;
+  background:rgba(255,255,255,.75);
+  border-radius:18px;
+  border:1px solid var(--line);
+  font-weight:900;
+}
+.skills-title small{
+  display:block;
+  font-weight:700;
+  color:var(--muted);
+  margin-top:4px;
+}
 
-    .sticker{
-      position:absolute;
-      padding:12px 16px;
-      border-radius:18px;
-      background:rgba(255,255,255,.92);
-      border:1px solid var(--line);
-      font-weight:950;
-      font-size:13px;
-      box-shadow:0 14px 28px rgba(0,0,0,.12);
-      animation:floaty 6s ease-in-out infinite;
-      transform:rotate(var(--r));
-      display:flex;align-items:center;gap:10px;
-      white-space:nowrap;
-    }
-    .sticker span{color:var(--muted);font-weight:800}
+.skill-stickers{position:absolute;inset:0;pointer-events:none}
 
-    /* place them all together in the center area */
-    .s1{top:140px;left:80px;--r:-6deg}
-    .s2{top:165px;left:290px;--r:5deg;animation-delay:1s}
-    .s3{top:250px;left:110px;--r:4deg;animation-delay:2s}
-    .s4{top:280px;left:320px;--r:-4deg;animation-delay:2.5s}
-    .s5{top:360px;left:150px;--r:-5deg;animation-delay:3s}
-    .s6{top:395px;left:320px;--r:6deg;animation-delay:3.6s}
-    .s7{top:450px;left:210px;--r:-3deg;animation-delay:4.2s}
+.sticker{
+  position:absolute;
+  padding:12px 16px;
+  background:rgba(255,255,255,.95);
+  border-radius:18px;
+  border:1px solid var(--line);
+  font-weight:900;
+  font-size:13px;
+  box-shadow:0 14px 26px rgba(0,0,0,.12);
+  animation:floaty 6s ease-in-out infinite;
+  transform:rotate(var(--r));
+}
+.sticker span{font-weight:700;color:var(--muted)}
 
-    @keyframes floaty{
-      0%,100%{transform:translateY(0) rotate(var(--r))}
-      50%{transform:translateY(-10px) rotate(var(--r))}
-    }
+.s1{top:140px;left:80px;--r:-6deg}
+.s2{top:170px;left:300px;--r:5deg;animation-delay:1s}
+.s3{top:250px;left:120px;--r:4deg;animation-delay:2s}
+.s4{top:290px;left:320px;--r:-4deg;animation-delay:2.5s}
+.s5{top:360px;left:150px;--r:-5deg;animation-delay:3s}
+.s6{top:400px;left:330px;--r:6deg;animation-delay:3.5s}
+.s7{top:450px;left:220px;--r:-3deg;animation-delay:4s}
 
-    /* nice cards below */
-    .info-grid{
-      margin-top:40px;
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:24px;
-    }
-    .info-card{
-      position:relative;
-      padding:28px;
-      border-radius:26px;
-      background:#ffffff;
-      box-shadow:0 18px 40px rgba(0,0,0,.12);
-      transition:transform .3s ease, box-shadow .3s ease;
-      cursor:pointer;
-      overflow:hidden;
-      border:1px solid rgba(31,26,36,.10);
-    }
-    .info-card:hover{
-      transform:translateY(-8px) scale(1.01);
-      box-shadow:0 30px 60px rgba(0,0,0,.18);
-    }
-    .card-icon{font-size:28px;margin-bottom:12px}
-    .info-card h3{margin:0 0 8px;font-size:20px;font-weight:950}
-    .info-card p{margin:0;font-size:15px;color:#5f5564;line-height:1.6}
-    .pink{background:linear-gradient(135deg, #fff0f7, #ffffff)}
-    .blue{background:linear-gradient(135deg, #eef7ff, #ffffff)}
-    .lavender{background:linear-gradient(135deg, #f3efff, #ffffff)}
-    .mint{background:linear-gradient(135deg, #ecfbf8, #ffffff)}
+@keyframes floaty{
+  0%,100%{transform:translateY(0) rotate(var(--r))}
+  50%{transform:translateY(-10px) rotate(var(--r))}
+}
 
-    footer{
-      margin-top:22px;padding:22px;border-radius:var(--radius);
-      background:rgba(255,255,255,.82);
-      border:1px solid var(--line);
-      box-shadow:var(--shadow);
-      display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;
-      align-items:center;
-    }
-    .foot-title{font-weight:950;font-size:16px;margin-bottom:4px}
-    .fine{font-size:12px;color:var(--muted);margin-top:10px;text-align:center;opacity:.9}
-
-    @media(max-width:900px){
-      .hero{grid-template-columns:1fr}
-      h1{font-size:38px}
-      .skills-canvas{min-height:420px}
-    }
-    @media(max-width:560px){
-      h1{font-size:34px}
-      nav{display:none}
-      .hero-inline{flex-direction:column;align-items:flex-start}
-      .inline-photo{width:150px;height:180px}
-      .s1,.s2,.s3,.s4,.s5,.s6,.s7{left:18px !important; right:auto}
-    }
-  </style>
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+}
+</style>
 </head>
 
 <body>
 <div class="wrap">
-  <header>
-    <nav>
-      <a href="#skills">Skills</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <div class="hero">
+<header>
+  <a href="#skills">Skills</a>
+  <a href="#education">Education</a>
+  <a href="#contact">Contact</a>
+</header>
 
-    <!-- LEFT: INTRO + PHOTO BETWEEN TITLE & TEXT -->
-    <div class="card">
+<div class="hero">
 
-      <div class="mini-profile" aria-label="Profile summary">
-        <div class="avatar" aria-hidden="true">
-          <img src="tanvi.jpg" alt="Tanvi Sanjeev Kadam" />
-        </div>
-        <div>
-          <div class="name">Tanvi Sanjeev Kadam <span class="pronouns">She/Her</span></div>
-          <div class="headline">
-            Data Analyst | MS Data Analytics &amp; AI @ Northeastern | Co-op @ ImEx Cargo LLC |
-            Python/R/SQL, BI Tools, GenAI, AI Agents, Data/Business Analytics, Marketing/CRM Analytics
-          </div>
-        </div>
-      </div>
-
-      <h1><span class="gradtext">Data-driven insights.</span><br>Clear decisions.</h1>
-
-      <!-- PHOTO HERE (BETWEEN TITLE AND SUBTITLE) -->
-      <div class="hero-inline">
-        <img class="inline-photo" src="tanvi.jpg" alt="Tanvi Sanjeev Kadam photo">
-        <p class="hero-subtitle">
-          Actively seeking full-time roles as a <strong>Data Analyst</strong>.<br>
-          December 2025 graduate · Authorized to work in the U.S.
+  <!-- LEFT -->
+  <div class="card">
+    <div class="mini-profile">
+      <img src="tanvi.jpg" alt="Tanvi">
+      <div>
+        <strong>Tanvi Sanjeev Kadam</strong> <span>She/Her</span>
+        <p>
+          Data Analyst | MS Data Analytics & AI @ Northeastern | Co-op @ ImEx Cargo LLC<br>
+          Python/R/SQL, BI Tools, GenAI, AI Agents, Data/Business Analytics, Marketing/CRM Analytics
         </p>
-      </div>
-
-      <div class="cta-row">
-        <a class="btn primary" href="#contact">Know me better</a>
-        <a class="btn ghost" href="https://www.linkedin.com/in/tanvisanjeev/" target="_blank" rel="noreferrer">LinkedIn</a>
       </div>
     </div>
 
-    <!-- RIGHT: TECHNICAL SKILL CANVAS (NO PHOTO) -->
-    <div class="skills-canvas" aria-label="Technical skills canvas">
-      <div class="skills-title">
-        Skills at a glance
-        <small>Practical tools + analysis strengths</small>
-      </div>
+    <h1>
+      <span class="gradtext">Data-driven insights.</span><br>
+      Clear decisions.
+    </h1>
 
-      <div class="skill-stickers" aria-hidden="true">
-        <div class="sticker s1">SQL <span>joins · aggregations</span></div>
-        <div class="sticker s2">Python <span>pandas · automation</span></div>
-        <div class="sticker s3">Power BI <span>KPI dashboards</span></div>
-        <div class="sticker s4">Tableau <span>visual storytelling</span></div>
-        <div class="sticker s5">EDA <span>patterns · trends</span></div>
-        <div class="sticker s6">Data Quality <span>validation · audits</span></div>
-        <div class="sticker s7">Reporting <span>stakeholder-ready</span></div>
+    <div class="hero-inline">
+      <img src="tanvi.jpg" class="inline-photo" alt="Tanvi">
+      <div class="hero-text">
+        Actively seeking full-time roles as a <strong>Data Analyst</strong>.<br>
+        December 2025 graduate · Authorized to work in the U.S.
       </div>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn primary" href="#contact">Know me better</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/tanvisanjeev/" target="_blank">LinkedIn</a>
     </div>
   </div>
 
-  <!-- NICE INFO CARDS -->
-  <section id="skills" class="info-grid">
-    <div class="info-card pink">
-      <div class="card-icon">🛠️</div>
-      <h3>Core Skills</h3>
-      <p>SQL · Python · R · Power BI · Tableau · Excel</p>
+  <!-- RIGHT -->
+  <div class="skills-canvas">
+    <div class="skills-title">
+      Skills at a glance
+      <small>Practical analytics toolkit</small>
     </div>
 
-    <div class="info-card blue">
-      <div class="card-icon">🚀</div>
-      <h3>What I Bring</h3>
-      <p>Ownership · Self-starter · Clear communication · Strong follow-through</p>
+    <div class="skill-stickers">
+      <div class="sticker s1">SQL <span>joins · aggregates</span></div>
+      <div class="sticker s2">Python <span>pandas · automation</span></div>
+      <div class="sticker s3">Power BI <span>KPI dashboards</span></div>
+      <div class="sticker s4">Tableau <span>visual storytelling</span></div>
+      <div class="sticker s5">EDA <span>patterns · trends</span></div>
+      <div class="sticker s6">Data Quality <span>validation</span></div>
+      <div class="sticker s7">Reporting <span>stakeholder-ready</span></div>
     </div>
+  </div>
 
-    <div id="education" class="info-card lavender">
-      <div class="card-icon">🎓</div>
-      <h3>Education</h3>
-      <p><strong>Northeastern University</strong><br>Master’s · Graduated December 2025</p>
-    </div>
-
-    <div class="info-card mint">
-      <div class="card-icon">🎯</div>
-      <h3>Focus</h3>
-      <p>Decision-ready analysis, clean dashboards, and reliable data workflows teams trust.</p>
-    </div>
-  </section>
-
-  <footer id="contact">
-    <div>
-      <div class="foot-title">Let’s connect</div>
-      <div style="color:var(--muted)">Open to full-time Data Analyst opportunities</div>
-    </div>
-    <div class="cta-row" style="margin:0">
-      <a class="btn primary" href="mailto:kadam.ta@northeastern.edu">Email me</a>
-      <a class="btn ghost" href="https://www.linkedin.com/in/tanvisanjeev/" target="_blank" rel="noreferrer">Message on LinkedIn</a>
-    </div>
-  </footer>
-
-  <div class="fine">© <span id="yr"></span> Tanvi Sanjeev Kadam</div>
 </div>
-
-<script>
-  document.getElementById('yr').textContent = new Date().getFullYear();
-</script>
+</div>
 </body>
 </html>

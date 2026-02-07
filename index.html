@@ -21,7 +21,6 @@
       --mint:#8eeadf;
       --radius:22px;
       --shadow:0 20px 40px rgba(31,26,36,.14);
-      --shadow2:0 26px 50px rgba(31,26,36,.18);
     }
 
     *{box-sizing:border-box}
@@ -64,7 +63,7 @@
       overflow:hidden
     }
 
-    /* MINI PROFILE (TOP INSIDE LEFT CARD) */
+    /* MINI PROFILE */
     .mini-profile{
       display:flex;align-items:center;gap:12px;
       margin-bottom:16px;
@@ -81,7 +80,9 @@
       background:linear-gradient(135deg, rgba(255,111,177,.35), rgba(154,215,255,.35));
     }
     .mini-profile .avatar img{
-      width:100%;height:100%;object-fit:cover;object-position:center 20%;
+      width:100%;height:100%;
+      object-fit:cover;
+      object-position:center 30%;
       display:block;
     }
     .mini-profile .name{
@@ -102,13 +103,12 @@
       font-size:46px;line-height:1.05;margin:0 0 10px;
       letter-spacing:-.2px;
     }
-
     .gradtext{
       background:linear-gradient(135deg,var(--accent),var(--lav),var(--accent2));
       -webkit-background-clip:text;background-clip:text;color:transparent
     }
 
-    /* PHOTO BETWEEN HEADLINE AND TEXT (YOUR REQUEST) */
+    /* PHOTO BETWEEN HEADLINE AND TEXT */
     .hero-inline{
       display:flex;
       align-items:center;
@@ -121,6 +121,7 @@
       height:150px;
       border-radius:18px;
       object-fit:cover;
+      object-position:center 20%;
       box-shadow:0 14px 34px rgba(31,26,36,.18);
       border:1px solid rgba(31,26,36,.12);
       background:#fff;
@@ -150,56 +151,70 @@
     }
     .btn:hover{filter:brightness(1.03)}
 
-    /* RIGHT SIDE: TECHNICAL SKILL CANVAS (EARLIER STYLE) */
-    .photo{
+    /* RIGHT SIDE: SKILLS CANVAS (NO PHOTO DUPLICATION) */
+    .skills-canvas{
       min-height:540px;
       position:relative;
       border-radius:var(--radius);
       overflow:hidden;
-      background:#fff;
       border:1px solid var(--line);
       box-shadow:var(--shadow);
-    }
-    .photo img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position:center 18%;
-      display:block;
+      background:
+        radial-gradient(520px 320px at 20% 20%, rgba(255,111,177,.30), transparent 60%),
+        radial-gradient(520px 320px at 80% 18%, rgba(154,215,255,.30), transparent 60%),
+        radial-gradient(520px 320px at 55% 80%, rgba(196,181,253,.22), transparent 65%),
+        rgba(255,255,255,.85);
     }
 
+    .skills-title{
+      position:absolute;top:18px;left:18px;right:18px;
+      padding:14px 16px;border-radius:18px;
+      background:rgba(255,255,255,.70);
+      border:1px solid var(--line);
+      font-weight:950;
+      box-shadow:0 10px 22px rgba(31,26,36,.10);
+    }
+    .skills-title small{display:block;color:var(--muted);font-weight:800;margin-top:4px}
+
     .skill-stickers{position:absolute;inset:0;pointer-events:none}
+
     .sticker{
       position:absolute;
-      padding:10px 14px;
-      border-radius:16px;
-      background:rgba(255,255,255,.9);
+      padding:12px 16px;
+      border-radius:18px;
+      background:rgba(255,255,255,.92);
       border:1px solid var(--line);
-      font-weight:900;font-size:13px;
-      box-shadow:0 12px 26px rgba(0,0,0,.12);
+      font-weight:950;
+      font-size:13px;
+      box-shadow:0 14px 28px rgba(0,0,0,.12);
       animation:floaty 6s ease-in-out infinite;
-      transform:rotate(var(--r))
+      transform:rotate(var(--r));
+      display:flex;align-items:center;gap:10px;
+      white-space:nowrap;
     }
-    .s1{top:10%;left:10%;--r:-6deg}
-    .s2{top:14%;right:12%;--r:6deg;animation-delay:1s}
-    .s3{top:34%;left:14%;--r:4deg;animation-delay:2s}
-    .s4{top:40%;right:16%;--r:-4deg;animation-delay:2.5s}
-    .s5{bottom:26%;left:12%;--r:-5deg;animation-delay:3s}
-    .s6{bottom:22%;right:12%;--r:6deg;animation-delay:3.6s}
+    .sticker span{color:var(--muted);font-weight:800}
+
+    /* place them all together in the center area */
+    .s1{top:140px;left:80px;--r:-6deg}
+    .s2{top:165px;left:290px;--r:5deg;animation-delay:1s}
+    .s3{top:250px;left:110px;--r:4deg;animation-delay:2s}
+    .s4{top:280px;left:320px;--r:-4deg;animation-delay:2.5s}
+    .s5{top:360px;left:150px;--r:-5deg;animation-delay:3s}
+    .s6{top:395px;left:320px;--r:6deg;animation-delay:3.6s}
+    .s7{top:450px;left:210px;--r:-3deg;animation-delay:4.2s}
 
     @keyframes floaty{
       0%,100%{transform:translateY(0) rotate(var(--r))}
-      50%{transform:translateY(-12px) rotate(var(--r))}
+      50%{transform:translateY(-10px) rotate(var(--r))}
     }
 
-    /* NICE CARDS BELOW */
+    /* nice cards below */
     .info-grid{
       margin-top:40px;
       display:grid;
       grid-template-columns:repeat(2,1fr);
       gap:24px;
     }
-
     .info-card{
       position:relative;
       padding:28px;
@@ -211,41 +226,13 @@
       overflow:hidden;
       border:1px solid rgba(31,26,36,.10);
     }
-
-    .info-card::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(135deg, transparent, rgba(255,255,255,.65));
-      opacity:0;
-      transition:opacity .3s ease;
-    }
-
     .info-card:hover{
       transform:translateY(-8px) scale(1.01);
       box-shadow:0 30px 60px rgba(0,0,0,.18);
     }
-
-    .info-card:hover::before{opacity:1}
-
-    .card-icon{
-      font-size:28px;
-      margin-bottom:12px;
-    }
-
-    .info-card h3{
-      margin:0 0 8px;
-      font-size:20px;
-      font-weight:900;
-    }
-
-    .info-card p{
-      margin:0;
-      font-size:15px;
-      color:#5f5564;
-      line-height:1.6;
-    }
-
+    .card-icon{font-size:28px;margin-bottom:12px}
+    .info-card h3{margin:0 0 8px;font-size:20px;font-weight:950}
+    .info-card p{margin:0;font-size:15px;color:#5f5564;line-height:1.6}
     .pink{background:linear-gradient(135deg, #fff0f7, #ffffff)}
     .blue{background:linear-gradient(135deg, #eef7ff, #ffffff)}
     .lavender{background:linear-gradient(135deg, #f3efff, #ffffff)}
@@ -265,13 +252,14 @@
     @media(max-width:900px){
       .hero{grid-template-columns:1fr}
       h1{font-size:38px}
-      .photo{min-height:420px}
+      .skills-canvas{min-height:420px}
     }
     @media(max-width:560px){
       h1{font-size:34px}
       nav{display:none}
       .hero-inline{flex-direction:column;align-items:flex-start}
-      .inline-photo{width:140px;height:170px}
+      .inline-photo{width:150px;height:180px}
+      .s1,.s2,.s3,.s4,.s5,.s6,.s7{left:18px !important; right:auto}
     }
   </style>
 </head>
@@ -321,16 +309,21 @@
       </div>
     </div>
 
-    <!-- RIGHT: KEEP AS EARLIER TECH SKILL IMAGE + FLOATING STICKERS -->
-    <div class="photo" aria-label="Technical skills visual">
-      <img src="tanvi.jpg" alt="Tanvi Kadam background photo">
+    <!-- RIGHT: TECHNICAL SKILL CANVAS (NO PHOTO) -->
+    <div class="skills-canvas" aria-label="Technical skills canvas">
+      <div class="skills-title">
+        Skills at a glance
+        <small>Practical tools + analysis strengths</small>
+      </div>
+
       <div class="skill-stickers" aria-hidden="true">
-        <div class="sticker s1">SQL</div>
-        <div class="sticker s2">Python</div>
-        <div class="sticker s3">Power BI</div>
-        <div class="sticker s4">Tableau</div>
-        <div class="sticker s5">EDA</div>
-        <div class="sticker s6">Data Quality</div>
+        <div class="sticker s1">SQL <span>joins · aggregations</span></div>
+        <div class="sticker s2">Python <span>pandas · automation</span></div>
+        <div class="sticker s3">Power BI <span>KPI dashboards</span></div>
+        <div class="sticker s4">Tableau <span>visual storytelling</span></div>
+        <div class="sticker s5">EDA <span>patterns · trends</span></div>
+        <div class="sticker s6">Data Quality <span>validation · audits</span></div>
+        <div class="sticker s7">Reporting <span>stakeholder-ready</span></div>
       </div>
     </div>
   </div>

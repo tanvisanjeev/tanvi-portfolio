@@ -23,385 +23,290 @@
     }
 
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family:"Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+      font-family:"Plus Jakarta Sans", sans-serif;
       color:var(--text);
       background:
-        radial-gradient(900px 500px at 15% 0%, rgba(255,111,177,.28), transparent 55%),
-        radial-gradient(900px 520px at 85% 10%, rgba(154,215,255,.30), transparent 55%),
+        radial-gradient(900px 500px at 15% 0%, rgba(255,111,177,.22), transparent 60%),
+        radial-gradient(900px 520px at 85% 10%, rgba(154,215,255,.22), transparent 60%),
         var(--bg);
     }
 
-    .wrap{max-width:1100px;margin:0 auto;padding:26px 18px 60px}
+    .wrap{max-width:1100px;margin:auto;padding:26px 18px 60px}
 
     header{
-      display:flex;justify-content:flex-end;align-items:center;
-      padding:10px 0 18px;margin-bottom:8px
+      display:flex;
+      justify-content:flex-end;
+      padding:10px 0 20px;
     }
-
-    /* REMOVED NAME IN HEADER */
-    .brand{display:none;}
-    .dot{display:none;}
 
     nav a{
-      margin-left:16px;text-decoration:none;color:var(--muted);font-size:14px;
-      padding:8px 10px;border-radius:12px
+      margin-left:16px;
+      text-decoration:none;
+      color:var(--muted);
+      font-size:14px;
+      padding:8px 12px;
+      border-radius:12px;
     }
+
     nav a:hover{
-      background:rgba(255,255,255,.65);
+      background:rgba(255,255,255,.7);
       border:1px solid var(--line);
     }
 
-    .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:stretch}
-
-    .card{
-      background:rgba(255,255,255,.88);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:26px;
-      border:1px solid rgba(31,26,36,.10);
-      position:relative;
-      overflow:hidden;
-      backdrop-filter: blur(6px);
-      transition:transform .18s ease, box-shadow .18s ease;
+    .hero{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:18px;
     }
 
-    .card:hover{
-      transform:translateY(-2px);
-      box-shadow:0 22px 52px rgba(31,26,36,.16);
+    .card{
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,111,177,.06),
+          rgba(255,255,255,0) 140px
+        ),
+        rgba(255,255,255,.92);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:28px;
+      border:1px solid rgba(31,26,36,.10);
     }
 
     h1{
       font-family:"Fraunces", serif;
-      font-size:50px;line-height:1.02;margin:0 0 10px;
-      letter-spacing:-.4px;
+      font-size:50px;
+      line-height:1.05;
+      margin:0 0 18px;
     }
 
     .gradtext{
       background:linear-gradient(135deg,var(--accent),var(--accent2));
-      -webkit-background-clip:text;background-clip:text;color:transparent
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
     }
 
-    /* LEFT CARD STRUCTURE */
-    .lead-block{margin-top:10px;display:grid;grid-template-columns:140px 1fr;gap:18px;align-items:center}
+    .lead-block{
+      display:grid;
+      grid-template-columns:140px 1fr;
+      gap:18px;
+      align-items:center;
+    }
+
     .portrait{
-      width:140px;height:140px;border-radius:22px;overflow:hidden;
+      width:140px;height:140px;
+      border-radius:22px;
+      overflow:hidden;
       border:1px solid var(--line);
       box-shadow:var(--shadow2);
-      background:#fff;
     }
+
     .portrait img{
-      width:100%;height:100%;object-fit:cover;object-position:center 20%;
-      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center 20%;
     }
+
     .seeking{
-      font-size:18px;line-height:1.5;color:var(--muted);
+      font-size:18px;
+      color:var(--muted);
       margin:0;
     }
+
     .bio{
-      margin-top:14px;
-      padding:14px 14px;
+      margin-top:16px;
+      padding:16px;
       border:1px solid var(--line);
       border-radius:18px;
-      background:rgba(255,255,255,.72);
+      background:rgba(255,255,255,.8);
     }
-    .bio .name-line{
-      font-weight:900;font-size:18px;letter-spacing:-.2px;
-      margin:0 0 6px;
+
+    .bio .name{
+      font-weight:900;
+      font-size:18px;
+      margin-bottom:6px;
     }
-    .bio .name-line span{color:var(--muted);font-weight:800;margin-left:8px}
-    .bio .role{
-      margin:0;color:var(--muted);line-height:1.55;font-size:14px;
+
+    .bio .name span{
+      color:var(--muted);
+      font-weight:700;
+      margin-left:8px;
     }
+
+    .bio p{
+      font-size:14px;
+      color:var(--muted);
+      line-height:1.6;
+      margin:0;
+    }
+
     .meta{
       margin-top:10px;
-      color:var(--muted);
       font-size:14px;
+      color:var(--muted);
     }
 
-    .cta-row{margin-top:16px;display:flex;gap:12px;flex-wrap:wrap}
-    .btn{
-      padding:12px 16px;border-radius:14px;border:none;
-      font-weight:800;font-size:14px;cursor:pointer;text-decoration:none;
-      display:inline-flex;align-items:center;justify-content:center;gap:8px;
-      transition:transform .15s ease, filter .15s ease;
+    .cta-row{
+      margin-top:18px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
     }
+
+    .btn{
+      padding:12px 16px;
+      border-radius:14px;
+      font-weight:800;
+      font-size:14px;
+      text-decoration:none;
+      border:none;
+      cursor:pointer;
+    }
+
     .btn.primary{
       background:linear-gradient(135deg,var(--accent),var(--accent2));
-      color:#fff;
-      box-shadow:0 14px 30px rgba(255,111,177,.20);
+      color:white;
     }
-    .btn.primary:hover{filter:saturate(1.06);transform:translateY(-1px)}
-    .btn.ghost{
-      background:rgba(255,255,255,.9);
-      border:1px solid var(--line);
-      color:var(--text)
-    }
-    .btn.ghost:hover{background:#fff;transform:translateY(-1px)}
 
-    /* RIGHT CARD - SKILLS AT A GLANCE */
+    .btn.ghost{
+      background:white;
+      border:1px solid var(--line);
+      color:var(--text);
+    }
+
+    /* SKILLS CARD */
     .skills-card{
-      min-height:520px;
-      padding:18px;
+      min-height:560px;
+      position:relative;
       background:
-        radial-gradient(520px 320px at 12% 0%, rgba(255,111,177,.28), transparent 58%),
-        radial-gradient(520px 320px at 88% 10%, rgba(154,215,255,.30), transparent 58%),
-        rgba(255,255,255,.72);
+        radial-gradient(500px 320px at 20% 0%, rgba(255,111,177,.25), transparent 60%),
+        radial-gradient(500px 320px at 80% 10%, rgba(154,215,255,.25), transparent 60%),
+        rgba(255,255,255,.85);
     }
 
     .skills-title{
       position:absolute;
-      top:16px; left:16px; right:16px;
-      padding:10px 14px;
-      background:rgba(255,255,255,.78);
+      top:18px;left:18px;right:18px;
+      padding:12px 14px;
+      background:white;
       border-radius:16px;
       border:1px solid var(--line);
-      box-shadow:0 10px 22px rgba(31,26,36,.10);
       font-weight:900;
       font-size:15px;
     }
+
     .skills-title small{
       display:block;
       font-size:12px;
-      font-weight:700;
       color:var(--muted);
       margin-top:2px;
     }
 
-    /* MORE STICKERS + BETTER USE OF SPACE */
     .skill-stickers{
       position:absolute;
-      top:86px;
+      top:100px;
       left:50%;
       transform:translateX(-50%);
       width:100%;
-      max-width:470px;
-      padding:18px 14px 18px;
+      max-width:460px;
       display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:14px 14px;
-      pointer-events:none;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+      padding:0 12px;
     }
 
     .sticker{
-      justify-self:center;
-      width:100%;
-      max-width:220px;
-      padding:10px 12px;
+      background:white;
       border-radius:18px;
-      background:rgba(255,255,255,.92);
       border:1px solid var(--line);
-      box-shadow:0 12px 26px rgba(0,0,0,.12);
+      padding:10px 12px;
+      box-shadow:var(--shadow2);
       font-weight:900;
       font-size:13px;
-      text-align:left;
-      animation:floaty 6s ease-in-out infinite;
-      transition:transform .15s ease;
-    }
-    .sticker b{font-weight:900;color:var(--text)}
-    .sticker span{color:var(--muted);font-weight:800;margin-left:8px;font-size:12px}
-
-    .sticker:nth-child(2){animation-delay:.6s}
-    .sticker:nth-child(3){animation-delay:1.2s}
-    .sticker:nth-child(4){animation-delay:1.8s}
-    .sticker:nth-child(5){animation-delay:2.4s}
-    .sticker:nth-child(6){animation-delay:3.0s}
-    .sticker:nth-child(7){animation-delay:3.6s}
-    .sticker:nth-child(8){animation-delay:4.2s}
-    .sticker:nth-child(9){animation-delay:4.8s}
-    .sticker:nth-child(10){animation-delay:5.4s}
-    .sticker:nth-child(11){animation-delay:6.0s}
-    .sticker:nth-child(12){animation-delay:6.6s}
-
-    @keyframes floaty{
-      0%,100%{transform:translateY(0)}
-      50%{transform:translateY(-10px)}
     }
 
-    section{margin-top:20px}
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-
-    h2{font-size:18px;margin:0 0 8px;letter-spacing:-.2px}
-    p{color:var(--muted);line-height:1.65;margin:0}
-
-    .mini{
-      padding:18px 18px;
-      background:rgba(255,255,255,.85);
-      border-radius:var(--radius);
-      border:1px solid rgba(31,26,36,.10);
-      box-shadow:var(--shadow2);
-      position:relative;
-      overflow:hidden;
-      cursor:default;
-      transition:transform .18s ease, box-shadow .18s ease;
-    }
-    .mini:hover{
-      transform:translateY(-3px);
-      box-shadow:0 18px 40px rgba(31,26,36,.14);
-    }
-    .mini .tag{
-      display:inline-flex;align-items:center;gap:8px;
-      font-weight:900;
-      margin-bottom:10px;
-    }
-    .pill{
-      display:inline-flex;align-items:center;
-      padding:8px 12px;border-radius:999px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.85);
-      font-weight:800;color:var(--muted);
-      margin-top:10px;
-      flex-wrap:wrap;
-      gap:8px;
-    }
-
-    footer{
-      margin-top:18px;
-      padding:18px;
-      border-radius:var(--radius);
-      background:rgba(255,255,255,.88);
-      border:1px solid rgba(31,26,36,.10);
-      box-shadow:var(--shadow);
-      display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+    .sticker span{
+      display:block;
+      font-size:12px;
+      color:var(--muted);
+      margin-top:4px;
     }
 
     @media(max-width:950px){
       .hero{grid-template-columns:1fr}
       h1{font-size:40px}
-      .skills-card{min-height:560px}
-      .lead-block{grid-template-columns:120px 1fr}
-      .portrait{width:120px;height:120px}
-      header{justify-content:flex-end}
-    }
-    @media(max-width:520px){
-      .lead-block{grid-template-columns:1fr}
-      .portrait{width:120px;height:120px}
-      .skill-stickers{max-width:360px}
-      .sticker{max-width:180px}
-      .skills-card{min-height:620px}
     }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
+<div class="wrap">
 
-    <header>
-      <nav>
-        <a href="#skills">Skills</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
+<header>
+  <nav>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-    <div class="hero">
+<div class="hero">
 
-      <!-- LEFT MAIN CARD -->
-      <div class="card">
+  <!-- LEFT CARD -->
+  <div class="card">
+    <h1><span class="gradtext">Data-driven insights.</span><br>Clear decisions.</h1>
 
-        <!-- 1) HEADLINE FIRST -->
-        <h1><span class="gradtext">Data-driven insights.</span><br>Clear decisions.</h1>
-
-        <!-- 2) PHOTO + SEEKING LINE -->
-        <div class="lead-block">
-          <div class="portrait">
-            <!-- Make sure this file exists in your repo root (same folder as index.html) -->
-            <img src="tanvi.jpg" alt="Tanvi Sanjeev Kadam">
-          </div>
-
-          <p class="seeking">
-            <strong>Actively seeking full-time roles as a Data Analyst.</strong>
-          </p>
-        </div>
-
-        <!-- 3) NAME + DETAILS (ONLY ONCE) -->
-        <div class="bio">
-          <p class="name-line">Tanvi Sanjeev Kadam <span>She/Her</span></p>
-          <p class="role">
-            Data Analyst | MS Data Analytics & AI @ Northeastern | Co-op @ ImEx Cargo LLC |
-            Python/R/SQL, BI Tools, GenAI, AI Agents, Data/Business Analytics, Marketing/CRM Analytics
-          </p>
-
-          <div class="meta">
-            December 2025 graduate · Authorized to work in the U.S.
-          </div>
-        </div>
-
-        <!-- 4) BUTTONS -->
-        <div class="cta-row">
-          <a class="btn primary" href="#contact">Know me better</a>
-          <a class="btn ghost" href="https://www.linkedin.com/in/tanvisanjeev/" target="_blank" rel="noreferrer">LinkedIn</a>
-        </div>
+    <div class="lead-block">
+      <div class="portrait">
+        <img src="tanvi.jpg" alt="Tanvi Sanjeev Kadam">
       </div>
-
-      <!-- RIGHT SKILLS CARD -->
-      <div class="card skills-card" aria-label="Skills at a glance">
-        <div class="skills-title">
-          Skills at a glance
-          <small>Practical tools + analysis strengths</small>
-        </div>
-
-        <div class="skill-stickers">
-          <div class="sticker"><b>SQL</b><span>joins · aggregations</span></div>
-          <div class="sticker"><b>Python</b><span>pandas · automation</span></div>
-          <div class="sticker"><b>Power BI</b><span>KPI dashboards</span></div>
-          <div class="sticker"><b>Tableau</b><span>visual storytelling</span></div>
-          <div class="sticker"><b>Data Cleaning</b><span>missing · outliers</span></div>
-          <div class="sticker"><b>EDA</b><span>patterns · trends</span></div>
-
-          <!-- ADDED MORE SKILLS TO FILL BLANK SPACE -->
-          <div class="sticker"><b>Excel</b><span>pivots · lookups</span></div>
-          <div class="sticker"><b>KPIs</b><span>definitions · tracking</span></div>
-          <div class="sticker"><b>Data Quality</b><span>validation · audits</span></div>
-          <div class="sticker"><b>Reporting</b><span>stakeholder-ready</span></div>
-          <div class="sticker"><b>Dashboards</b><span>decision-ready</span></div>
-          <div class="sticker"><b>Storytelling</b><span>clear insights</span></div>
-        </div>
-      </div>
-
+      <p class="seeking"><strong>Actively seeking full-time roles as a Data Analyst.</strong></p>
     </div>
 
-    <!-- LOWER SECTION CARDS -->
-    <section id="skills" class="grid">
-      <div class="mini">
-        <div class="tag">🧰 Core Skills</div>
-        <p>SQL, Python, R, Power BI, Tableau, Excel</p>
-        <div class="pill">Dashboards · KPI Reporting · Data Cleaning · Analysis</div>
-      </div>
+    <div class="bio">
+      <div class="name">Tanvi Sanjeev Kadam <span>She/Her</span></div>
+      <p>
+        Data Analyst | MS Data Analytics & AI @ Northeastern | Co-op @ ImEx Cargo LLC |
+        Python/R/SQL, BI Tools, GenAI, AI Agents, Data/Business Analytics, Marketing/CRM Analytics
+      </p>
+      <div class="meta">December 2025 graduate · Authorized to work in the U.S.</div>
+    </div>
 
-      <div class="mini">
-        <div class="tag">🚀 What I Bring</div>
-        <p>Ownership, self-starter mindset, clear communication, strong follow-through</p>
-        <div class="pill">Cross-domain · Comfortable with ambiguity · Fast learner</div>
-      </div>
-    </section>
-
-    <section id="education" class="grid">
-      <div class="mini">
-        <div class="tag">🎓 Education</div>
-        <p><strong>Northeastern University</strong></p>
-        <p>Master’s · Graduated December 2025</p>
-      </div>
-
-      <div class="mini">
-        <div class="tag">🎯 Focus</div>
-        <p>Decision-ready analysis, clean dashboards, and reliable data workflows teams can trust.</p>
-      </div>
-    </section>
-
-    <footer id="contact">
-      <div>
-        <strong>Let’s connect</strong>
-        <p>Open to full-time Data Analyst roles · Boston / Remote</p>
-      </div>
-      <div class="cta-row">
-        <a class="btn primary" href="mailto:kadam.ta@northeastern.edu">Email me</a>
-        <a class="btn ghost" href="https://www.linkedin.com/in/tanvisanjeev/" target="_blank" rel="noreferrer">Message on LinkedIn</a>
-      </div>
-    </footer>
-
+    <div class="cta-row">
+      <a class="btn primary" href="#contact">Know me better</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/tanvisanjeev/" target="_blank">LinkedIn</a>
+    </div>
   </div>
+
+  <!-- RIGHT SKILLS CARD -->
+  <div class="card skills-card">
+    <div class="skills-title">
+      Skills at a glance
+      <small>Practical tools + analysis strengths</small>
+    </div>
+
+    <div class="skill-stickers">
+      <div class="sticker">SQL<span>joins · aggregations</span></div>
+      <div class="sticker">Python<span>pandas · automation</span></div>
+      <div class="sticker">Power BI<span>KPI dashboards</span></div>
+      <div class="sticker">Tableau<span>visual storytelling</span></div>
+      <div class="sticker">Excel<span>advanced formulas</span></div>
+      <div class="sticker">EDA<span>patterns · trends</span></div>
+      <div class="sticker">Data Cleaning<span>missing · outliers</span></div>
+      <div class="sticker">Data Quality<span>validation · audits</span></div>
+      <div class="sticker">Reporting<span>stakeholder-ready</span></div>
+      <div class="sticker">Automation<span>repeatable workflows</span></div>
+      <div class="sticker">Documentation<span>clear handoffs</span></div>
+      <div class="sticker">Analytics Mindset<span>business-first</span></div>
+    </div>
+  </div>
+
+</div>
+
+</div>
 </body>
 </html>

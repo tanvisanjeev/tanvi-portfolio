@@ -20,6 +20,8 @@
       --radius:22px;
       --shadow:0 18px 40px rgba(31,26,36,.14);
       --shadow2:0 12px 26px rgba(31,26,36,.10);
+      --pinkwash: rgba(255,111,177,.10);
+      --bluewash: rgba(154,215,255,.10);
     }
 
     *{box-sizing:border-box}
@@ -56,8 +58,12 @@
 
     .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:stretch}
 
+    /* ✅ CHANGE: subtle pink glow inside all cards */
     .card{
-      background:rgba(255,255,255,.88);
+      background:
+        radial-gradient(520px 260px at 18% 12%, var(--pinkwash), transparent 58%),
+        radial-gradient(520px 260px at 88% 10%, var(--bluewash), transparent 58%),
+        rgba(255,255,255,.88);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
       padding:26px;
@@ -100,13 +106,18 @@
       font-size:18px;line-height:1.5;color:var(--muted);
       margin:0;
     }
+
+    /* ✅ CHANGE: slight pink tint in bio box (still mostly white) */
     .bio{
       margin-top:14px;
       padding:14px 14px;
       border:1px solid var(--line);
       border-radius:18px;
-      background:rgba(255,255,255,.72);
+      background:
+        radial-gradient(420px 160px at 12% 20%, rgba(255,111,177,.08), transparent 55%),
+        rgba(255,255,255,.74);
     }
+
     .bio .name-line{
       font-weight:900;font-size:18px;letter-spacing:-.2px;
       margin:0 0 6px;
@@ -146,16 +157,18 @@
       min-height:520px;
       padding:18px;
       background:
-        radial-gradient(520px 320px at 12% 0%, rgba(255,111,177,.28), transparent 58%),
+        radial-gradient(520px 320px at 12% 0%, rgba(255,111,177,.30), transparent 58%),
         radial-gradient(520px 320px at 88% 10%, rgba(154,215,255,.30), transparent 58%),
-        rgba(255,255,255,.72);
+        rgba(255,255,255,.76);
     }
 
+    /* ✅ CHANGE: more pink on title pill but subtle */
     .skills-title{
       position:absolute;
       top:16px; left:16px; right:16px;
       padding:10px 14px;
-      background:rgba(255,255,255,.78);
+      background:
+        linear-gradient(180deg, rgba(255,111,177,.08), rgba(255,255,255,.85));
       border-radius:16px;
       border:1px solid var(--line);
       box-shadow:0 10px 22px rgba(31,26,36,.10);
@@ -170,7 +183,6 @@
       margin-top:2px;
     }
 
-    /* MORE STICKERS + BETTER USE OF SPACE */
     .skill-stickers{
       position:absolute;
       top:86px;
@@ -191,7 +203,9 @@
       max-width:220px;
       padding:10px 12px;
       border-radius:18px;
-      background:rgba(255,255,255,.92);
+      background:
+        radial-gradient(360px 140px at 10% 10%, rgba(255,111,177,.07), transparent 55%),
+        rgba(255,255,255,.92);
       border:1px solid var(--line);
       box-shadow:0 12px 26px rgba(0,0,0,.12);
       font-weight:900;
@@ -226,9 +240,12 @@
     h2{font-size:18px;margin:0 0 8px;letter-spacing:-.2px}
     p{color:var(--muted);line-height:1.65;margin:0}
 
+    /* ✅ CHANGE: mini cards also get soft pink glow */
     .mini{
       padding:18px 18px;
-      background:rgba(255,255,255,.85);
+      background:
+        radial-gradient(420px 180px at 12% 12%, rgba(255,111,177,.08), transparent 60%),
+        rgba(255,255,255,.86);
       border-radius:var(--radius);
       border:1px solid rgba(31,26,36,.10);
       box-shadow:var(--shadow2);
@@ -257,11 +274,14 @@
       gap:8px;
     }
 
+    /* ✅ CHANGE: footer gets soft pink too */
     footer{
       margin-top:18px;
       padding:18px;
       border-radius:var(--radius);
-      background:rgba(255,255,255,.88);
+      background:
+        radial-gradient(520px 220px at 12% 20%, rgba(255,111,177,.08), transparent 62%),
+        rgba(255,255,255,.90);
       border:1px solid rgba(31,26,36,.10);
       box-shadow:var(--shadow);
       display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
@@ -307,7 +327,6 @@
         <!-- 2) PHOTO + SEEKING LINE -->
         <div class="lead-block">
           <div class="portrait">
-            <!-- Make sure this file exists in your repo root (same folder as index.html) -->
             <img src="tanvi.jpg" alt="Tanvi Sanjeev Kadam">
           </div>
 
@@ -350,8 +369,6 @@
           <div class="sticker"><b>Tableau</b><span>visual storytelling</span></div>
           <div class="sticker"><b>Data Cleaning</b><span>missing · outliers</span></div>
           <div class="sticker"><b>EDA</b><span>patterns · trends</span></div>
-
-          <!-- ADDED MORE SKILLS TO FILL BLANK SPACE -->
           <div class="sticker"><b>Excel</b><span>pivots · lookups</span></div>
           <div class="sticker"><b>KPIs</b><span>definitions · tracking</span></div>
           <div class="sticker"><b>Data Quality</b><span>validation · audits</span></div>

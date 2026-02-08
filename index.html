@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tanvi Sanjeev Kadam | Data Analyst</title>
-  <meta name="description" content="Tanvi Sanjeev Kadam — Data Analyst. SQL, Python, R, Power BI, Tableau. Actively seeking full-time roles." />
 
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Fraunces:wght@600;800&display=swap" rel="stylesheet">
 
@@ -28,17 +27,33 @@
       font-family:"Plus Jakarta Sans", sans-serif;
       color:var(--text);
       background:
-        radial-gradient(900px 500px at 15% 0%, rgba(255,111,177,.22), transparent 60%),
-        radial-gradient(900px 520px at 85% 10%, rgba(154,215,255,.22), transparent 60%),
+        radial-gradient(900px 500px at 15% 0%, rgba(255,111,177,.25), transparent 55%),
+        radial-gradient(900px 520px at 85% 10%, rgba(154,215,255,.25), transparent 55%),
         var(--bg);
     }
 
-    .wrap{max-width:1100px;margin:auto;padding:26px 18px 60px}
+    .wrap{max-width:1100px;margin:0 auto;padding:26px 18px 60px}
 
+    /* HEADER */
     header{
       display:flex;
-      justify-content:flex-end;
-      padding:10px 0 20px;
+      justify-content:space-between;
+      align-items:center;
+      padding:10px 0 18px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .dot{
+      width:12px;
+      height:12px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      box-shadow:0 8px 18px rgba(255,111,177,.35);
     }
 
     nav a{
@@ -46,15 +61,16 @@
       text-decoration:none;
       color:var(--muted);
       font-size:14px;
-      padding:8px 12px;
+      padding:8px 10px;
       border-radius:12px;
     }
 
     nav a:hover{
-      background:rgba(255,255,255,.7);
+      background:#fff;
       border:1px solid var(--line);
     }
 
+    /* HERO */
     .hero{
       display:grid;
       grid-template-columns:1.15fr .85fr;
@@ -63,85 +79,81 @@
 
     .card{
       background:
-        linear-gradient(
-          180deg,
-          rgba(255,111,177,.06),
-          rgba(255,255,255,0) 140px
-        ),
-        rgba(255,255,255,.92);
+        linear-gradient(180deg, rgba(255,111,177,.05), rgba(255,255,255,.95)),
+        #fff;
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      padding:28px;
+      padding:26px;
       border:1px solid rgba(31,26,36,.10);
     }
 
     h1{
       font-family:"Fraunces", serif;
-      font-size:50px;
+      font-size:48px;
       line-height:1.05;
-      margin:0 0 18px;
+      margin:0 0 14px;
     }
 
     .gradtext{
       background:linear-gradient(135deg,var(--accent),var(--accent2));
       -webkit-background-clip:text;
-      background-clip:text;
       color:transparent;
     }
 
-    .lead-block{
+    /* LEFT CONTENT */
+    .lead{
       display:grid;
       grid-template-columns:140px 1fr;
       gap:18px;
       align-items:center;
+      margin-top:10px;
     }
 
     .portrait{
-      width:140px;height:140px;
+      width:140px;
+      height:140px;
       border-radius:22px;
       overflow:hidden;
-      border:1px solid var(--line);
       box-shadow:var(--shadow2);
+      border:1px solid var(--line);
     }
 
     .portrait img{
       width:100%;
       height:100%;
       object-fit:cover;
-      object-position:center 20%;
     }
 
     .seeking{
       font-size:18px;
       color:var(--muted);
-      margin:0;
+      line-height:1.5;
     }
 
     .bio{
       margin-top:16px;
       padding:16px;
-      border:1px solid var(--line);
       border-radius:18px;
-      background:rgba(255,255,255,.8);
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.85);
     }
 
-    .bio .name{
+    .name{
       font-weight:900;
       font-size:18px;
-      margin-bottom:6px;
     }
 
-    .bio .name span{
+    .name span{
       color:var(--muted);
-      font-weight:700;
       margin-left:8px;
+      font-weight:700;
     }
 
-    .bio p{
+    .role{
       font-size:14px;
       color:var(--muted);
-      line-height:1.6;
-      margin:0;
+      line-height:1.55;
+      margin-top:6px;
     }
 
     .meta{
@@ -150,95 +162,84 @@
       color:var(--muted);
     }
 
-    .cta-row{
+    .cta{
       margin-top:18px;
       display:flex;
       gap:12px;
-      flex-wrap:wrap;
     }
 
     .btn{
       padding:12px 16px;
       border-radius:14px;
       font-weight:800;
-      font-size:14px;
       text-decoration:none;
-      border:none;
-      cursor:pointer;
     }
 
-    .btn.primary{
+    .primary{
       background:linear-gradient(135deg,var(--accent),var(--accent2));
-      color:white;
+      color:#fff;
     }
 
-    .btn.ghost{
-      background:white;
+    .ghost{
       border:1px solid var(--line);
       color:var(--text);
+      background:#fff;
     }
 
-    /* SKILLS CARD */
-    .skills-card{
+    /* RIGHT SKILLS */
+    .skills{
       min-height:560px;
       position:relative;
       background:
-        radial-gradient(500px 320px at 20% 0%, rgba(255,111,177,.25), transparent 60%),
-        radial-gradient(500px 320px at 80% 10%, rgba(154,215,255,.25), transparent 60%),
-        rgba(255,255,255,.85);
+        radial-gradient(420px 280px at 10% 0%, rgba(255,111,177,.25), transparent 60%),
+        radial-gradient(420px 280px at 90% 10%, rgba(154,215,255,.25), transparent 60%),
+        rgba(255,255,255,.9);
     }
 
     .skills-title{
-      position:absolute;
-      top:18px;left:18px;right:18px;
-      padding:12px 14px;
-      background:white;
-      border-radius:16px;
-      border:1px solid var(--line);
       font-weight:900;
-      font-size:15px;
+      padding:12px 14px;
+      border-radius:16px;
+      background:#fff;
+      border:1px solid var(--line);
     }
 
     .skills-title small{
       display:block;
-      font-size:12px;
       color:var(--muted);
-      margin-top:2px;
-    }
-
-    .skill-stickers{
-      position:absolute;
-      top:100px;
-      left:50%;
-      transform:translateX(-50%);
-      width:100%;
-      max-width:460px;
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:14px;
-      padding:0 12px;
-    }
-
-    .sticker{
-      background:white;
-      border-radius:18px;
-      border:1px solid var(--line);
-      padding:10px 12px;
-      box-shadow:var(--shadow2);
-      font-weight:900;
-      font-size:13px;
-    }
-
-    .sticker span{
-      display:block;
       font-size:12px;
-      color:var(--muted);
       margin-top:4px;
     }
 
-    @media(max-width:950px){
+    .skill-grid{
+      margin-top:20px;
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+    }
+
+    .skill{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:10px 12px;
+      font-size:13px;
+      font-weight:800;
+      box-shadow:var(--shadow2);
+    }
+
+    .skill span{
+      display:block;
+      font-size:12px;
+      color:var(--muted);
+      font-weight:700;
+      margin-top:2px;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
       .hero{grid-template-columns:1fr}
-      h1{font-size:40px}
+      .lead{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -247,6 +248,7 @@
 <div class="wrap">
 
 <header>
+  <div class="brand"><span class="dot"></span></div>
   <nav>
     <a href="#skills">Skills</a>
     <a href="#education">Education</a>
@@ -256,54 +258,52 @@
 
 <div class="hero">
 
-  <!-- LEFT CARD -->
-  <div class="card">
-    <h1><span class="gradtext">Data-driven insights.</span><br>Clear decisions.</h1>
+<!-- LEFT -->
+<div class="card">
+  <h1><span class="gradtext">Data-driven insights.</span><br>Clear decisions.</h1>
 
-    <div class="lead-block">
-      <div class="portrait">
-        <img src="tanvi.jpg" alt="Tanvi Sanjeev Kadam">
-      </div>
-      <p class="seeking"><strong>Actively seeking full-time roles as a Data Analyst.</strong></p>
+  <div class="lead">
+    <div class="portrait">
+      <img src="tanvi.jpg" alt="Tanvi Sanjeev Kadam">
     </div>
-
-    <div class="bio">
-      <div class="name">Tanvi Sanjeev Kadam <span>She/Her</span></div>
-      <p>
-        Data Analyst | MS Data Analytics & AI @ Northeastern | Co-op @ ImEx Cargo LLC |
-        Python/R/SQL, BI Tools, GenAI, AI Agents, Data/Business Analytics, Marketing/CRM Analytics
-      </p>
-      <div class="meta">December 2025 graduate · Authorized to work in the U.S.</div>
-    </div>
-
-    <div class="cta-row">
-      <a class="btn primary" href="#contact">Know me better</a>
-      <a class="btn ghost" href="https://www.linkedin.com/in/tanvisanjeev/" target="_blank">LinkedIn</a>
-    </div>
+    <p class="seeking"><strong>Actively seeking full-time roles as a Data Analyst.</strong></p>
   </div>
 
-  <!-- RIGHT SKILLS CARD -->
-  <div class="card skills-card">
-    <div class="skills-title">
-      Skills at a glance
-      <small>Practical tools + analysis strengths</small>
+  <div class="bio">
+    <div class="name">Tanvi Sanjeev Kadam <span>She/Her</span></div>
+    <div class="role">
+      Data Analyst | MS Data Analytics & AI @ Northeastern | Co-op @ ImEx Cargo LLC<br>
+      Python / R / SQL · BI Tools · GenAI · AI Agents · Business Analytics · Marketing / CRM Analytics
     </div>
-
-    <div class="skill-stickers">
-      <div class="sticker">SQL<span>joins · aggregations</span></div>
-      <div class="sticker">Python<span>pandas · automation</span></div>
-      <div class="sticker">Power BI<span>KPI dashboards</span></div>
-      <div class="sticker">Tableau<span>visual storytelling</span></div>
-      <div class="sticker">Excel<span>advanced formulas</span></div>
-      <div class="sticker">EDA<span>patterns · trends</span></div>
-      <div class="sticker">Data Cleaning<span>missing · outliers</span></div>
-      <div class="sticker">Data Quality<span>validation · audits</span></div>
-      <div class="sticker">Reporting<span>stakeholder-ready</span></div>
-      <div class="sticker">Automation<span>repeatable workflows</span></div>
-      <div class="sticker">Documentation<span>clear handoffs</span></div>
-      <div class="sticker">Analytics Mindset<span>business-first</span></div>
-    </div>
+    <div class="meta">December 2025 graduate · Authorized to work in the U.S.</div>
   </div>
+
+  <div class="cta">
+    <a class="btn primary" href="#contact">Know me better</a>
+    <a class="btn ghost" href="https://www.linkedin.com/in/tanvisanjeev/" target="_blank">LinkedIn</a>
+  </div>
+</div>
+
+<!-- RIGHT -->
+<div class="card skills">
+  <div class="skills-title">
+    Skills at a glance
+    <small>Practical tools + analysis strengths</small>
+  </div>
+
+  <div class="skill-grid">
+    <div class="skill">SQL<span>joins · aggregations</span></div>
+    <div class="skill">Python<span>pandas · automation</span></div>
+    <div class="skill">Power BI<span>KPI dashboards</span></div>
+    <div class="skill">Tableau<span>visual storytelling</span></div>
+    <div class="skill">EDA<span>patterns · trends</span></div>
+    <div class="skill">Data Quality<span>validation · audits</span></div>
+    <div class="skill">Excel<span>advanced formulas</span></div>
+    <div class="skill">Statistics<span>hypothesis testing</span></div>
+    <div class="skill">Reporting<span>stakeholder-ready</span></div>
+    <div class="skill">Data Cleaning<span>missing · outliers</span></div>
+  </div>
+</div>
 
 </div>
 
